@@ -1,0 +1,8 @@
+{
+    "Bar_Conversation": {
+        "description": "A bartender greets you",
+        "event_type": "conversation",
+        "start_node": "Bar",
+        "end_node": "Bar"
+    }
+}

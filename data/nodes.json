@@ -1,0 +1,8 @@
+{
+    "Bar": {
+        "characters": ["Bartender", "Pink"],
+        "events": ["Bar_Conversation"],
+        "connections": ["Hotel", "Monument", "Grocery_Store"],
+        "items": []
+    }
+}

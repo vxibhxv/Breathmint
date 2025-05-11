@@ -1,0 +1,9 @@
+{
+    "Bartender" : {
+        "name": "Joe",
+        "description" : "Hotel Bar in Seoul",
+        "events": ["Bar_Conversation"],
+        "nodes": ["Bar"]
+    }
+        
+}
