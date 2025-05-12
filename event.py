@@ -10,13 +10,18 @@ class Event:
     """
     Class representing a single game event
     """
-    def __init__(self, description: str, event_type: str, start_node, end_node):
+    def __init__(self, name, description, event_type, event_stages, characters, start_node, end_node):
         """Initialize a new event"""
-        self.description = description
-        # Type of an event discovery, combat, movement 
-        self.event_type = event_type
-        self.start_node = start_node
-        self.end_node = end_node
+        
+        self.name = name
+        description=description
+        event_type=event_type
+        event_stages=event_stages
+        characters=characters
+        self.current_stage = 0
+        self.visited_stage = [0] * len(event_stages)
+        start_node=start_node
+        end_node=end_node
     
     def to_dict(self):
         return {
@@ -28,15 +33,26 @@ class Event:
     
     def __str__(self) -> str:
         """String representation of the event"""
-        return self.description
+        return self.name
     
-
+    def mark_stage_visited(self):
+        self.visited_stage[self.current_stage] = 1
+    
+    def find_unvisited_stages(self):
+        unvisited = []
+        for i, stage in enumerate(self.event_stages):
+            if self.visited_stage[i] == 0:
+                unvisited.append(stage)
+        return unvisited
     
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> 'Event':
         return cls(
+            name=data["name"],
             description=data["description"],
             event_type=data["event_type"],
+            event_stages=data["event_stages"],
+            characters=data["characters"],
             start_node=data["start_node"],
             end_node=data["end_node"]
         )
