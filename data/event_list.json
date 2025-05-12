@@ -1,5 +1,5 @@
 
-"""
+""""
 event list
 _event:
 {
@@ -12,7 +12,7 @@ _event:
     "end_node": 
     }
 }
-"""
+""""
 
 store_brawl:
 {
