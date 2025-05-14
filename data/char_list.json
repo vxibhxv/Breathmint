@@ -1,0 +1,45 @@
+
+// Character list
+// {
+// "_character" : {
+//         "name": "",
+//         "description" : "",
+//         "events": [""],
+//         "current": [],
+//         "nodes": [" "],
+//     	"npc_ID":[]
+
+// }
+        
+}
+
+
+"pink_ranger0  " : {
+        "name": "Vanessa Wiliams",
+        "description" : "A tall and athletic woman. Her brown hair is tied up in a short ponytain, and her upturned nose twitches as she speaks. She is proudly Korean, the daughter of a somewhat famous TV show director, Kim Park-Williams",
+        "events": ["pink_conversation"],
+        "current":["bar"],
+        "nodes": ["bar"],
+    	"npc_ID":[]
+
+    }
+
+"bartender" : {
+        "name": "Kim Jong-Il",
+        "description" : "A large man, wiping a glass, staring at a K-Pop video on the bar's TV. He's dressed in an apron, a white t-shirt and dark green jeans.",
+        "events": ["pink_conversation"],
+        "current": ["bar"],
+        "nodes": ["bar"],
+    	"npc_ID":[]
+
+}
+
+"Base_Commander" : {
+        "name": "Harold the Hammer",
+        "description" : "A heavy, muscular man. A navy and air veteran, he commands the Hammer base. A broad forehead made broader by close cropped hair hangs over a flat nose, beady eyes staring intently.",
+        "events": ["Morning Meet","Ranger Visit", "GB HQ Visit"],
+        "current": ["Moning Meet"],
+        "nodes": ["Hammer base, Mess Courtyard, Conference room, RHQ Helipad, RHQ lobby"],
+    	"npc_ID":[]
+
+}
