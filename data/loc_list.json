@@ -12,7 +12,7 @@
 // 
 
 
-bar: {
+"bar": {
         "characters": ["bartender", "pink_ranger0"],
         "description":["Down the street from the store is a nice looking bar, a smooth voice sings karaoke. It's a translation of smooth operator in Korean, your gringo ears tell you. Leather seats and wooden tables hold glasses of cold beer and soju, water percolating on the clouded glass."],
 		"events": ["pink_conversation"],
