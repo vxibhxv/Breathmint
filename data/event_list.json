@@ -1,20 +1,5 @@
 
-// """"
-// event list
-// _event:
-// {
-//     "event_name": []
-//     "description": []
-//     "event_type": []
-//     "event_stages":[]
-//     "characters":[]
-//     "start_node": 
-//     "end_node": 
-//     }
-// }
-// """"
-
-number_convo:
+"number_convo":
 {
     "event_name": ["number_convo"],
     "description": ["A quick conversation with a hot hotel receptionist. She gives you her number to be polite, since you stay at the hotel."],
@@ -31,7 +16,7 @@ number_convo:
     
 }
 
-waking_up:
+"waking_up":
 {
     "event_name": ["waking_up"],
     "description": ["The first node, when you, a tourist, wake up in your hotel room in Neo Seoul."],
@@ -46,7 +31,7 @@ waking_up:
 }
 
 
-store_brawl:
+"store_brawl":
 {
     "event_name": ["store_brawl"],
     "description": ["A fight between the tourist, four youths and the store owner."],
@@ -58,8 +43,7 @@ store_brawl:
 
     }
 }
-
-PINK_conversation:
+"pink_conversation":
 {
     "event_name": ["pink conversation"],
     "description": ["a connversation between the bartender, tourist and pink ranger, Vanessa"],
