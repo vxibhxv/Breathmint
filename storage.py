@@ -46,24 +46,6 @@ def save_event(event_id, event_data):
     events[event_id] = event_data
     _save_dict("events.json", events)
 
-def get_event_detail(event_id):
-    event_list = _load_dict("event_list.json")
-    return event_list.get(event_id)
-
-def save_event_detail(event_id, event_data):
-    event_list = _load_dict("event_list.json")
-    event_list[event_id] = event_data
-    _save_dict("event_list.json", event_list)
-
-def get_location(loc_id):
-    locations = _load_dict("loc_list.json")
-    return locations.get(loc_id)
-
-def save_location(loc_id, loc_data):
-    locations = _load_dict("loc_list.json")
-    locations[loc_id] = loc_data
-    _save_dict("loc_list.json", locations)
-
 def get_node(node_id):
     nodes = _load_dict("nodes.json")
     return nodes.get(node_id)
@@ -72,3 +54,13 @@ def save_node(node_id, node_data):
     nodes = _load_dict("nodes.json")
     nodes[node_id] = node_data
     _save_dict("nodes.json", nodes)
+
+def save_game(player_id, game_data):
+    games = _load_dict("saves.json")
+    games[player_id] = game_data
+    _save_dict("saves.json", games)
+
+def get_game(player_id):
+    games = _load_dict("saves.json")
+    return games.get(player_id)
+

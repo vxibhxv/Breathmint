@@ -48,7 +48,8 @@
 
 "bar":
 {
-	"characters":["bartender","pink_ranger","glasses_man","handsome_lady"],
+	"name": "bar",
+	"characters":["bartender","pink_ranger"],
 	"description":["Down the street from the hotel, past a grocery store is a nice looking bar, a smooth voice sings karaoke. It's a translation of smooth operator in Korean, your gringo ears tell you. Leather seats and wooden tables hold glasses of cold beer and soju, water percolating on the clouded glass. "],
 	"events":["crying_pink_booze"],
 	"connections": ["Hotel","Grocery_store","monument"],

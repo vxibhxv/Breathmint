@@ -1,8 +1,114 @@
 {
-    "Bar": {
-        "characters": ["Bartender", "Pink"],
-        "events": ["Bar_Conversation"],
-        "connections": ["Hotel", "Monument", "Grocery_Store"],
-        "items": []
-    }
+  "hotel_room": {
+    "name": "hotel_room",
+    "characters": [],
+    "description": "A brown room with softly glowing lights. Its a little cramped, but it smells like you. Clothes are strewn about the room. A desk and chair sit folded along a wall, and a comfortable bed sits in the centre of the room.",
+    "events": [
+      "waking up"
+    ],
+    "current_event": 0,
+    "visited_events": [
+      0
+    ],
+    "connections": [
+      "hotel_lobby"
+    ],
+    "items": [
+      "joint"
+    ]
+  },
+  "hotel_lobby": {
+    "name": "hotel_lobby",
+    "characters": "hot_receptionist",
+    "description": "The lobby is nondescript, if a little dirty. The bellhop is on smoke break, and the receptionist is buying makeup online. Not like she needs it, she's a beauty.",
+    "events": [
+      "number_convo"
+    ],
+    "current_event": 0,
+    "visited_events": [
+      0
+    ],
+    "connections": [
+      "hotel"
+    ],
+    "items": [
+      "receptionist_number"
+    ]
+  },
+  "hotel": {
+    "name": "hotel",
+    "characters": [],
+    "description": [
+      "The street outside the hotel is filled with leafy trees. The afternoon sun gives the trees a golden glow. Driverless cars move on fixed tracks, but there's no humans around you."
+    ],
+    "events": [],
+    "current_event": 0,
+    "visited_events": [],
+    "connections": [
+      "Bar",
+      "Grocery_store"
+    ],
+    "items": []
+  },
+  "grocery_store": {
+    "name": "grocery_store",
+    "characters": [
+      "storekeep",
+      "youth1",
+      "youth2",
+      "youth3",
+      "youth4"
+    ],
+    "description": [
+      "The metro exit faces a grocery store. An anime girl invites you inside, asking you to try Kawaii Tofu. Isn't that japanese? \nOnce inside, you wish you had money."
+    ],
+    "events": [
+      "store_brawl"
+    ],
+    "current_event": 0,
+    "visited_events": [
+      0
+    ],
+    "connections": [
+      "bar",
+      "hotel"
+    ],
+    "items": [
+      "tofu",
+      "melbarro_reds",
+      "water",
+      "coffee_can"
+    ]
+  },
+  "bar": {
+    "name": "bar",
+    "characters": [
+      "bartender",
+      "pink_ranger"
+    ],
+    "description": [
+      "Down the street from the hotel, past a grocery store is a nice looking bar, a smooth voice sings karaoke. It's a translation of smooth operator in Korean, your gringo ears tell you. Leather seats and wooden tables hold glasses of cold beer and soju, water percolating on the clouded glass. "
+    ],
+    "events": [
+      "pink_conversation"
+    ],
+    "connections": [
+      "hotel",
+      "grocery_store",
+      "monument"
+    ],
+    "items": [
+      "soju_bottle",
+      "beer_mug",
+      "potato_fries"
+    ]
+  },
+  "monument": {
+    "name": "monument",
+    "characters": [],
+    "description": [],
+    "events": [],
+    "connections": [],
+    "items": []
+  }
 }

@@ -1,73 +1,61 @@
 from typing import List, Dict, Any
 import os, json
 import time
-import player
+import node, player, event
+import storage as st
 
 class GameState:
-    def __init__(self, event_manager, player, current_node, current_event, character_manager):
-        self.event_manager = event_manager
-        self.player = player
-        self.current_node = current_node
-        self.current_event = current_event
-        self.character_manager = character_manager
-    
+    def __init__(self, data: dict[str, Any]):
+        self.player = player.Player.from_name(data['player'])
+        if 'current_node' not in data:
+            data['current_node'] = self.player.location
+        self.node_manager = node.GameNodeManager(data['node_log'], data['current_node'])
+        self.event_manager = event.EventManager(data['event_log'])
+        self.current_node = self.node_manager.current_node
+        if 'current_event' in data:
+            self.current_event = self.event_manager.get_event(data['current_event'])
+        else:
+            self.current_event = self.event_manager.get_current_event()
+
     def add_event(self, event):
         self.event_manager.log_event(event)
-    
-    def get_recent_events(self, count: int = 5) -> List[str]:
-        """Get the most recent story events"""
-        recent_events = self.event_manager.get_recent_events(count)
-        return [str(event) for event in recent_events]
     
     def move_to_node(self) -> None:
         """Move player to a new location node"""
         self.current_node = self.event_manager.get_event(self.current_event).end_node
         self.current_event = None
         self.player.location = self.current_node
-        
-    
-    def set_flag(self, flag_name: str, value: bool = True) -> None:
-        """Set a game flag"""
-        
-    
-    def has_flag(self, flag_name: str) -> bool:
-        """Check if a flag is set and true"""
-        
     
     def to_dict(self) -> Dict[str, Any]:
         """Convert game state to dictionary for saving"""
+        c_e = self.current_event.name if self.current_event else None
+
         return {
-            "player": self.player.to_dict(),
-            "event_log": self.event_manager.event_log,
-            "current_event": self.current_event,
-            "current_node": self.current_node,
-            "current_event": self.current_event
+            "player": self.player.name,
+            "event_log": self.event_manager.save(),
+            "node_log": self.node_manager.save(),
+            "current_event": c_e,
+            "current_node": self.current_node.name
         }
     
-    def save_game(self, save_dir: str = "./data/saves") -> bool:
-        """Save current game state to file"""
-        save_file = os.path.join(save_dir, f"savegame_{time.time()}.json")
-        with open(save_file, 'w+') as f:
-            json.dump(self.to_dict(), f, indent=2)
-        return True
+    def save_game(self):
+       """Save game state to file"""
+       st.save_game(self.player.name, self.to_dict())
     
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> 'GameState':
         """Create game state from dictionary data"""
-        player = player.load_player(data['player'])
-        current_node = data['current_node']
-        current_event = data['current_event']
-        
-        return cls(
-            player = data['Player'],
+        data['player'] = st.load_player(data['player'])
+        return cls(data)
 
-        )
+    def get_event_consequence(self, event_name, event_stage):
+        self.event_manager.get_consequence(event_name, event_stage)
         
-    
-    @classmethod
-    def load_game(cls, save_file: str = "savegame.json"):
-        """Load game state from file"""
-        
-    
-    def to_context_dict(self) -> Dict[str, Any]:
-        """Convert state to a dictionary suitable for AI context"""
+if __name__ == '__main__':
+    game_dict = {
+        "player": "Tourist",
+        "event_log": [],
+        "node_log": [],
+    }
+    gs = GameState(game_dict)
+    gs.save_game()

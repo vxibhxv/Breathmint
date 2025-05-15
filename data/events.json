@@ -1,8 +1,78 @@
 {
-    "Bar_Conversation": {
-        "description": "A bartender greets you",
-        "event_type": "conversation",
-        "start_node": "Bar",
-        "end_node": "Bar"
-    }
+  "number_convo": {
+    "name": "number_convo",
+    "description": "A quick conversation with a hot hotel receptionist. She gives you her number to be polite, since you stay at the hotel.",
+    "event_type": "conversation",
+    "event_stages": [
+      "Hi",
+      "Punchline"
+    ],
+    "characters": [
+      "hot_receptionist"
+    ],
+    "start_node": "hotel_lobby",
+    "end_node": "hotel_lobby",
+    "current_stage": 0,
+    "visited_stages": [
+      0,
+      0
+    ],
+    "prose": [
+      "She looks at you, and gives her customary smile. Her bangs part to reveal a pretty face.",
+      "'Annyeonghaseyo!' she smiles with bright teeth.",
+      "' You want Punchline! Of course, with pleasure.' she says helpfully, punching her number into your phonse.",
+      "You leave happy."
+    ]
+  },
+  "waking_up": {
+    "name": "waking_up",
+    "description": "The first node, when you, a tourist, wake up in your hotel room in Neo Seoul.",
+    "event_type": "conversation",
+    "event_stages": [
+      "up_at_em"
+    ],
+    "characters": [
+      ""
+    ],
+    "start_node": "hotel_room",
+    "end_node": "hotel_lobby",
+    "current_stage": 0,
+    "visited_stages": [
+      0
+    ],
+    "prose": [
+      "You wake up in your room. Looking around, you find your passport, what does it say? Who does it belong to?",
+      "You pick up your effects, fancy wording for a joint, rolled by an expert. You quickly descend the elevator to the lobby."
+    ]
+  },
+  "pink_conversation": {
+    "name": "pink conversation",
+    "description": "a connversation between the bartender, tourist and pink ranger, Vanessa",
+    "event_type": "conversation",
+    "event_stages": [
+      "sitting down",
+      "spotting",
+      "her walk",
+      "smell like death",
+      "booze"
+    ],
+    "characters": [
+      "bartender",
+      "pink_ranger"
+    ],
+    "start_node": "bar",
+    "end_node": "bar",
+    "prose": [
+      "Eyes gleam at you from across the bar. You'd swear they look pink, if that wasn't impossible. ",
+      "The owner of the eyes saunters your way, swaying like a candle. Her brown hair falls to her left as she tilts her head to get a better look at you",
+      "She slumps onto the seat next to you, round eyes still gleaming. Her upturned nose sniffs, and her breaths get lighter.",
+      "You smell like death.' she says, with finality. She snaps her fingers at the bartender, pointing at your empty glass. ",
+      "As your cup is being filled, you notice she's crying. Before you can say anything, she lays her head on the bar and snores softly.",
+      "'Keep em coming big man' you say to the bartender, who freezes you in place with a high Korean eyebrow arch. Oof, a classic.",
+      "'Just Put it on her tab', you suggest. The bartender rumbles. 'No.'",
+      "The bartender steals a glance at the sleeping, drooling woman next to you.",
+      "The Ranger Monument. All you fucking tourists go there.",
+      "While it can be hard to tell the difference between them, advice is better than threats in Seoul."
+    ]
+  }
 }

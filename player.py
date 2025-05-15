@@ -2,7 +2,8 @@
 This module handles player-specific data and functionality.
 """
 from typing import List, Dict, Any, Optional
-
+import json
+import storage as st
 
 class Player:
     """
@@ -10,13 +11,14 @@ class Player:
     """
     def __init__(self, info: dict):
         """Initialize a new player"""
-        self.name = info.name
-        self.health = info.health
-        self.max_health = info.max_health
-        self.inventory = info.inventory
-        self.stats = info.stats
-        self.location = info.location
-        self.relationships = info.relationships
+        # import pdb; pdb.set_trace()
+        self.name = info['name']
+        self.health = info['health']
+        self.max_health = info['max_health']
+        self.inventory = info['inventory']
+        self.stats = info['stats']
+        self.location = info['location']
+        self.relationships = info['relationships']
     
     def add_to_inventory(self, item: str) -> None:
         """Add an item to player inventory"""
@@ -54,9 +56,11 @@ class Player:
             "stats": self.stats.copy()
         }
     
-
-def load_player(data: Dict[str, Any], player_name: str) -> 'Player':
-    """Create a player instance from dictionary data"""
-    input_entry = data.get(player_name)
-    player = Player(input_entry)
-    return player
+    @classmethod
+    def from_name(cls, player_name) -> 'Player':
+        data = st.get_player(player_name)
+        return cls(data)
+    
+    def save(self):
+        data = self.to_dict()
+        st.save_player(self.name, data)

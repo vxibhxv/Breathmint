@@ -6,6 +6,15 @@
         "inventory": ["C", "D", "E"],
         "stats": {"strength": 10, "intelligence": 10},
         "location" : "barracks",
-        "reltionships" : "" 
+        "relationships" : "" 
+    },
+    "Tourist": {
+        "name": "Tourist",
+        "health": 100,
+        "max_health": 100,
+        "inventory": ["joint", "hotel_key"],
+        "stats": {"strength": 10, "intelligence": 10},
+        "location" : "hotel_room",
+        "relationships" : ""
     }
 }
