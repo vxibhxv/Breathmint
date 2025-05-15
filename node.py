@@ -1,12 +1,7 @@
+
 import json
 from typing import List, Any
-import storage as st
-
-class Connection:
-    def __init__(self, node_a, node_b):
-        self.node_a = node_a
-        self.node_b = node_b
-    
+import storage as st    
     
 class GameNode:
 
@@ -24,11 +19,8 @@ class GameNode:
         else:
             self.visited_events = [0] * len(self.events)
         self.connections = info['connections']
-        self.connection_list = self.build_connections(self.connections)
+        
         self.items = info['items']
-    
-    def build_connections(self, connections):
-        return [Connection(self.name, connection) for connection in connections]
     
     @classmethod
     def from_dict(cls, info: dict[str, Any]):
@@ -45,6 +37,25 @@ class GameNode:
             "connections": self.connections,
             "items": self.items
         }
+    
+    def visit_event(self, event, complete):
+        event_index = self.events.index(event)
+        if complete:
+            self.visited_events[event_index] = 1
+        return self.visited_events
+    
+    def find_available_events(self):
+        available_events = []
+        for i, event in enumerate(self.events):
+            if self.visited_events[i] == 0:
+                available_events.append(event)
+        return available_events
+    
+    def to_context(self):
+        cont = {
+            "node": self.name,
+        }
+        return cont
 
 class GameNodeManager:
     def __init__(self, nodes, location):
@@ -68,7 +79,8 @@ class GameNodeManager:
             node = GameNode.from_dict(node_dict)
         self.log_node(node)
         return node
-
+        
+            
     def log_node(self, node: GameNode):
         self.current_node = node
         self.nodes.append(node.name)
@@ -78,7 +90,7 @@ class GameNodeManager:
         return self.current_node.events
     
     def get_current_node_connections(self):
-        return self.current_node.connection_list
+        return self.current_node.connections
     
     def move_to_node(self, node_name):
         self.current_node = self.node_log[node_name]

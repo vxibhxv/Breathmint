@@ -17,7 +17,7 @@
       0,
       0
     ],
-    "prose": [
+    "consequence": [
       "She looks at you, and gives her customary smile. Her bangs part to reveal a pretty face.",
       "'Annyeonghaseyo!' she smiles with bright teeth.",
       "' You want Punchline! Of course, with pleasure.' she says helpfully, punching her number into your phonse.",
@@ -40,7 +40,7 @@
     "visited_stages": [
       0
     ],
-    "prose": [
+    "consequence": [
       "You wake up in your room. Looking around, you find your passport, what does it say? Who does it belong to?",
       "You pick up your effects, fancy wording for a joint, rolled by an expert. You quickly descend the elevator to the lobby."
     ]
@@ -62,7 +62,7 @@
     ],
     "start_node": "bar",
     "end_node": "bar",
-    "prose": [
+    "consequence": [
       "Eyes gleam at you from across the bar. You'd swear they look pink, if that wasn't impossible. ",
       "The owner of the eyes saunters your way, swaying like a candle. Her brown hair falls to her left as she tilts her head to get a better look at you",
       "She slumps onto the seat next to you, round eyes still gleaming. Her upturned nose sniffs, and her breaths get lighter.",

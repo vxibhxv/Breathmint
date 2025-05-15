@@ -1,0 +1,11 @@
+{
+  "Tourist": {
+    "player": "Tourist",
+    "event_log": [],
+    "node_log": [
+      "hotel_room",
+      "hotel_lobby"
+    ],
+    "current_node": "hotel"
+  }
+}

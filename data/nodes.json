@@ -4,7 +4,7 @@
     "characters": [],
     "description": "A brown room with softly glowing lights. Its a little cramped, but it smells like you. Clothes are strewn about the room. A desk and chair sit folded along a wall, and a comfortable bed sits in the centre of the room.",
     "events": [
-      "waking up"
+      "waking_up"
     ],
     "current_event": 0,
     "visited_events": [
@@ -45,8 +45,8 @@
     "current_event": 0,
     "visited_events": [],
     "connections": [
-      "Bar",
-      "Grocery_store"
+      "bar",
+      "grocery_store"
     ],
     "items": []
   },
