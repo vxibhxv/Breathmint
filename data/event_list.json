@@ -27,7 +27,7 @@
     "end_node": "Hotel_lobby",
     "prose":["You wake up in your room. Looking around, you find your passport, what does it say? Who does it belong to?"
         "You pick up your effects, fancy wording for a joint, rolled by an expert. You quickly descend the elevator to the lobby."]
-    }
+    
 }
 
 
@@ -42,7 +42,7 @@
     "end_node": ["Grocery_store"]
 
     }
-}
+
 "pink_conversation":
 {
     "event_name": ["pink conversation"],
