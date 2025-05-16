@@ -11,7 +11,7 @@
       "hot_receptionist"
     ],
     "start_node": "hotel_lobby",
-    "end_node": "hotel_lobby",
+    "end_node": "hotel",
     "current_stage": 0,
     "visited_stages": [
       0,
@@ -74,5 +74,17 @@
       "The Ranger Monument. All you fucking tourists go there.",
       "While it can be hard to tell the difference between them, advice is better than threats in Seoul."
     ]
-  }
+  },
+  "store_brawl":{
+      "event_name": ["store_brawl"],
+      "description": ["A fight between the tourist, four youths and the store owner."],
+      "event_type": ["combat"],
+      "event_stages":["youth entry", "insults", "fight", "owner_end_talk"],
+      "characters":["youth1","youth2","youth3","youth4","storekeep"],
+      "start_node": ["Grocery_store"],
+      "end_node": ["Grocery_store"],
+      "consequence": [
+        "punch", "kick"
+      ]
+    }
 }

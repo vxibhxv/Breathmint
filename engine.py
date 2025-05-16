@@ -1,13 +1,16 @@
 from typing import Any, List, Dict
 import state
+import interface
 import storage as st
 import json
 
 class GameEngine:
     def __init__(self, info: dict[str, Any]):
         self.game_state = state.GameState(info)
+        with open('api_key.txt', 'r') as f:
+            api_key = f.read().strip()
 
-        self.ai = "hero"
+        self.ai = interface.Interface(self.game_state, api_key)
     
     def options(self, ops):
         need_input = []
@@ -25,6 +28,24 @@ class GameEngine:
         print(options)
         eve = input("What do you want to do?\n---> ")
         print("You entered:", eve)
+        intent, args = self.ai.handle_input(eve, input_req, options)
+        return intent, args
+        
+    def map_output(self, intent, args):
+        if intent == "where_am_i":
+            print(self.game_state.current_node.description)
+        elif intent == "who_is_here":
+            print(self.game_state.current_node.characters)
+        elif intent == "move_location" or intent == "sub_action":
+            self.game_state.take_action(args)
+        elif intent == "save":
+            print("Save the game")
+        elif intent == "quit":
+            print("Quit the game")
+        elif intent == "fallback":
+            print("Unknown / ambiguous input")
+        else:
+            print("Unknown intent")
         
 
 
@@ -35,8 +56,8 @@ class GameEngine:
             ops = self.game_state.find_and_validate_options()
             input_req = self.options(ops)
             print(input_req, len(input_req))
-            inputs = self.map_input(input_req, ops)            
-            self.game_state.take_action(inputs)
+            intent, args = self.map_input(input_req, ops)
+            self.map_output(intent, args)          
 
 if __name__ == '__main__':
     player_info = st._load_dict("players.json")

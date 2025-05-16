@@ -29,7 +29,7 @@
       0
     ],
     "connections": [
-      "hotel"
+      "hotel", "hotel_room"
     ],
     "items": [
       "receptionist_number"
@@ -46,7 +46,8 @@
     "visited_events": [],
     "connections": [
       "bar",
-      "grocery_store"
+      "grocery_store",
+      "hotel_lobby"
     ],
     "items": []
   },

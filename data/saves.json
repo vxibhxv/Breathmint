@@ -6,6 +6,6 @@
       "hotel_room",
       "hotel_lobby"
     ],
-    "current_node": "hotel"
+    "current_node": "hotel_room"
   }
 }

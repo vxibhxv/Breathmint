@@ -60,9 +60,9 @@ class GameState:
     
     def take_action(self, inp):
         if len(inp) == 2:
-            self.visit_event(inp[0], inp[1])
+            self.visit_event(inp['event'], inp['stage'])
         else:
-            new_node = self.node_manager.get_node(inp[0])
+            new_node = self.node_manager.get_node(inp['node'])
             print("Entering new node:", new_node.name)
             print("\n", new_node.description, "\n ------- \n")
             self.current_node = new_node
