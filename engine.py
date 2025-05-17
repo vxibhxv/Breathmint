@@ -1,5 +1,5 @@
 from game_ai import GameAI
-from new_state import GameState
+from state import GameState
 import storage as st
 import json
 
@@ -23,6 +23,7 @@ while True:
         classified = ai.classify_input(user_input, context)
 
     response = ai.process_command(classified, state)
+    state.respond(response)
 
     if classified["action"] == "quit":
         print(response)

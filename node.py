@@ -2,7 +2,7 @@
 import json
 from typing import List, Any
 import storage as st
-import new_event as event    
+import event as event    
     
 class GameNode:
 

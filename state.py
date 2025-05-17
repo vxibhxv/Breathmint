@@ -1,13 +1,12 @@
 from typing import List, Dict, Any
-import new_node as node
-import new_player as player
-import new_event as event
+import node as node
+import player as player
+import event as event
 import storage as st
 
 class GameState:
     def __init__(self, data: dict[str, Any]):
         self.player = player.Player.from_name(data['player'])
-        
         
         # Set current node information
         if 'current_node' not in data:
@@ -40,9 +39,12 @@ class GameState:
     def respond(self, text_response: str) -> str:
         # Write to a file to upload to frontend
         IMAGE_DIR = "images/"
-        image_path = self.current_node.name + '-' + self.current_event.name + '.jpg'
+        if self.current_event:
+            image_path = IMAGE_DIR + self.current_node.name + '-' + self.current_event.name + '.jpg'
+        else:
+            image_path = None
         op = {
-            "image_path": IMAGE_DIR + image_path,
+            "image_path": image_path,
             "text_response": text_response,
             "node_name": self.current_node.name,
             "node_connections": self.current_node.connections,

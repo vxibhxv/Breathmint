@@ -84,7 +84,7 @@ Game context:
 \"\"\"
 
 - describe : The user wants to know more about the game.
-options: list connections, characters and events
+options/questions: list of connections, characters and events
 - move_to : The user wants to move to a different location.
 - perform_event : The user wants to talk to someone or do something.
 - quit : The user wants to quit the game.
