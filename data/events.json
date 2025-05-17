@@ -3,20 +3,11 @@
     "name": "number_convo",
     "description": "A quick conversation with a hot hotel receptionist. She gives you her number to be polite, since you stay at the hotel.",
     "event_type": "conversation",
-    "event_stages": [
-      "Hi",
-      "Punchline"
-    ],
     "characters": [
       "hot_receptionist"
     ],
     "start_node": "hotel_lobby",
     "end_node": "hotel",
-    "current_stage": 0,
-    "visited_stages": [
-      0,
-      0
-    ],
     "consequence": [
       "She looks at you, and gives her customary smile. Her bangs part to reveal a pretty face.",
       "'Annyeonghaseyo!' she smiles with bright teeth.",
@@ -28,40 +19,26 @@
     "name": "waking_up",
     "description": "The first node, when you, a tourist, wake up in your hotel room in Neo Seoul.",
     "event_type": "conversation",
-    "event_stages": [
-      "up_at_em"
-    ],
     "characters": [
       ""
     ],
     "start_node": "hotel_room",
     "end_node": "hotel_lobby",
-    "current_stage": 0,
-    "visited_stages": [
-      0
-    ],
     "consequence": [
       "You wake up in your room. Looking around, you find your passport, what does it say? Who does it belong to?",
       "You pick up your effects, fancy wording for a joint, rolled by an expert. You quickly descend the elevator to the lobby."
     ]
   },
   "pink_conversation": {
-    "name": "pink conversation",
+    "name": "pink_conversation",
     "description": "a connversation between the bartender, tourist and pink ranger, Vanessa",
     "event_type": "conversation",
-    "event_stages": [
-      "sitting down",
-      "spotting",
-      "her walk",
-      "smell like death",
-      "booze"
-    ],
     "characters": [
       "bartender",
       "pink_ranger"
     ],
     "start_node": "bar",
-    "end_node": "bar",
+    "end_node": "monument",
     "consequence": [
       "Eyes gleam at you from across the bar. You'd swear they look pink, if that wasn't impossible. ",
       "The owner of the eyes saunters your way, swaying like a candle. Her brown hair falls to her left as she tilts her head to get a better look at you",

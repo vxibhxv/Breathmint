@@ -33,12 +33,10 @@ class Interface:
         args = {}
 
         # Generalized argument extraction
-        if input_req:
+        if intent == "move_location" or intent == "sub_action":
             extracted = self._extract_args(text_input, input_req, options)
             if extracted:
                 args.update(extracted)
-            elif intent != "fallback":
-                return "I couldn't determine the details of your request."
 
         return intent, args
 
@@ -65,6 +63,8 @@ class Interface:
 You are a game input classifier. Map the input to one of the following intent keywords:
 - where_am_i : User wants location information
 - who_is_here : User wants other characters/player information
+- where_can_i_go : User wants to know where they can go
+- what_can_i_do : User wants to know what they can do
 - move_location: Player wants to go to a new location
 - sub_action: Player wants to do something
 - save: Player wants to save
@@ -118,7 +118,8 @@ If the player is asking to move, return ONLY the node name. If it's not clear, r
                 temperature=0
             )
             loc = response.content[0].text
-            return {"node": loc} if loc.lower() != "unknown" else None
+            print("Extracted node:", loc)
+            return {"node": loc}
         except Exception as e:
             print("GPT error during node extraction:", e)
             return None
@@ -154,7 +155,7 @@ If you can't determine, return: "unknown"
             content = response.content[0].text
             print(content)
             if content.lower() == "unknown":
-                return None
+                return {"event": "unknown", "stage": "unknown"}
             return json.loads(content)
         except Exception as e:
             print("GPT error during event-stage extraction:", e)

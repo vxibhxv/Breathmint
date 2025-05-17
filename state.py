@@ -11,6 +11,7 @@ class GameState:
             data['current_node'] = self.player.location
         self.node_manager = node.GameNodeManager(data['node_log'], data['current_node'])
         self.event_manager = event.EventManager(data['event_log'])
+        
         self.current_node = self.node_manager.current_node
         if 'current_event' in data:
             self.current_event = self.event_manager.get_event(data['current_event'])

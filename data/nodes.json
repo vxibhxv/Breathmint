@@ -6,10 +6,6 @@
     "events": [
       "waking_up"
     ],
-    "current_event": 0,
-    "visited_events": [
-      0
-    ],
     "connections": [
       "hotel_lobby"
     ],
@@ -24,26 +20,20 @@
     "events": [
       "number_convo"
     ],
-    "current_event": 0,
-    "visited_events": [
-      0
-    ],
     "connections": [
-      "hotel", "hotel_room"
+      "outside_hotel", "hotel_room"
     ],
     "items": [
       "receptionist_number"
     ]
   },
-  "hotel": {
-    "name": "hotel",
+  "outside_hotel": {
+    "name": "outside_hotel",
     "characters": [],
     "description": [
       "The street outside the hotel is filled with leafy trees. The afternoon sun gives the trees a golden glow. Driverless cars move on fixed tracks, but there's no humans around you."
     ],
     "events": [],
-    "current_event": 0,
-    "visited_events": [],
     "connections": [
       "bar",
       "grocery_store",
@@ -65,10 +55,6 @@
     ],
     "events": [
       "store_brawl"
-    ],
-    "current_event": 0,
-    "visited_events": [
-      0
     ],
     "connections": [
       "bar",
@@ -94,7 +80,7 @@
       "pink_conversation"
     ],
     "connections": [
-      "hotel",
+      "outside_hotel",
       "grocery_store",
       "monument"
     ],

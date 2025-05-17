@@ -37,7 +37,15 @@ class GameEngine:
         elif intent == "who_is_here":
             print(self.game_state.current_node.characters)
         elif intent == "move_location" or intent == "sub_action":
+            for k, v in args.items():
+                if v == "unknown":
+                    print("Unknown input, please try again")
+                    return
             self.game_state.take_action(args)
+        elif intent == "where_can_i_go":
+            print(self.game_state.current_node.connections)
+        elif intent == "what_can_i_do":
+            print(self.game_state.current_node.events)
         elif intent == "save":
             print("Save the game")
         elif intent == "quit":
