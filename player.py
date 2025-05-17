@@ -37,6 +37,7 @@ class Player:
     def save(self):
         data = self.to_dict()
         st.save_player(self.name, data)
+        return self.name
     
     def describe(self) -> str:
         """Return a summary of the player’s status."""

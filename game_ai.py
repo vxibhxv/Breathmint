@@ -57,7 +57,7 @@ class GameAI:
         if intent == "quit" or intent == "save":
             state.save_game()
             print("Quiting game...")
-            return
+            return {"action": "quit"}
 
         if intent == "move_location":
             args = {
