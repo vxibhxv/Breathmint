@@ -1,6 +1,3 @@
-"""
-This module handles player-specific data and functionality.
-"""
 from typing import List, Dict, Any, Optional
 import json
 import storage as st
@@ -20,32 +17,6 @@ class Player:
         self.location = info['location']
         self.relationships = info['relationships']
     
-    def add_to_inventory(self, item: str) -> None:
-        """Add an item to player inventory"""
-        self.inventory.append(item)
-    
-    def remove_from_inventory(self, item: str) -> bool:
-        """Remove an item from inventory if present"""
-        if item in self.inventory:
-            self.inventory.remove(item)
-            return True
-        return False
-    
-    def has_item(self, item: str) -> bool:
-        """Check if player has a specific item"""
-        return item in self.inventory
-    
-    def modify_health(self, amount: int) -> int:
-        """Modify player health and return new value"""
-        self.health += amount
-        # Ensure health stays within bounds
-        self.health = max(0, min(self.health, self.max_health))
-        return self.health
-
-    def is_alive(self) -> bool:
-        """Check if player is alive"""
-        return self.health > 0
-    
     def to_dict(self) -> Dict[str, Any]:
         """Convert player data to dictionary for saving"""
         return {
@@ -57,10 +28,22 @@ class Player:
         }
     
     @classmethod
-    def from_name(cls, player_name) -> 'Player':
+    def from_name(cls, player_name)-> 'Player':
         data = st.get_player(player_name)
         return cls(data)
     
     def save(self):
         data = self.to_dict()
         st.save_player(self.name, data)
+    
+    def describe(self) -> str:
+        """Return a summary of the player’s status."""
+        inv = ", ".join(self.inventory) or "nothing"
+        stats = ", ".join(f"{k}: {v}" for k, v in self.stats.items())
+        return (
+            f"You are {self.name}. "
+            f"Health: {self.health}/{self.max_health}. "
+            f"Inventory: {inv}. "
+            f"Stats: {stats}. "
+            f"Current location: {self.location}."
+        )

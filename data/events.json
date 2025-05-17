@@ -56,7 +56,6 @@
       "event_name": ["store_brawl"],
       "description": ["A fight between the tourist, four youths and the store owner."],
       "event_type": ["combat"],
-      "event_stages":["youth entry", "insults", "fight", "owner_end_talk"],
       "characters":["youth1","youth2","youth3","youth4","storekeep"],
       "start_node": ["Grocery_store"],
       "end_node": ["Grocery_store"],

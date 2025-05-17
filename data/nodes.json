@@ -34,6 +34,8 @@
       "The street outside the hotel is filled with leafy trees. The afternoon sun gives the trees a golden glow. Driverless cars move on fixed tracks, but there's no humans around you."
     ],
     "events": [],
+    "current_event": 0,
+    "visited_events": [],
     "connections": [
       "bar",
       "grocery_store",

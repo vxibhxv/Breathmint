@@ -1,35 +1,31 @@
 from typing import List, Dict, Any
-import os, json
-import time
-import node, player, event
+import new_node as node
+import new_player as player
+import new_event as event
 import storage as st
 
 class GameState:
     def __init__(self, data: dict[str, Any]):
         self.player = player.Player.from_name(data['player'])
+        
+        
+        # Set current node information
         if 'current_node' not in data:
             data['current_node'] = self.player.location
-        self.node_manager = node.GameNodeManager(data['node_log'], data['current_node'])
-        self.event_manager = event.EventManager(data['event_log'])
-        
-        self.current_node = self.node_manager.current_node
-        if 'current_event' in data:
-            self.current_event = self.event_manager.get_event(data['current_event'])
-        else:
-            self.current_event = self.event_manager.get_current_event()
+        self.current_node = node.GameNode.from_name(data['current_node'])
+
+        # Set current event information
+        self.current_event = self.current_node.current_event
+        self.conversation_turns = 0
+        self.locked_event = None
     
     def to_dict(self) -> Dict[str, Any]:
         """Convert game state to dictionary for saving"""
-        c_e = self.current_event.name if self.current_event else None
         op = {
-            "player": self.player.name,
-            "event_log": self.event_manager.save(),
-            "node_log": self.node_manager.save(),
-            "current_node": self.current_node.name
+            "player": self.player.save(),
+            "current_node": self.current_node.save(),
+            "current_event": self.current_event.save()
         }
-        if c_e:
-            op['current_event'] = c_e
-
         return op
     
     def save_game(self):
@@ -39,75 +35,81 @@ class GameState:
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> 'GameState':
         """Create game state from dictionary data"""
-        # data['player'] = st.load_player(data['player'])
         return cls(data)
     
-    def find_nodes(self):
-        nds = self.node_manager.get_current_node_connections()
-        options = []
-        for n in nds:
-            noe = self.node_manager.get_node(n)
-            options.append(noe.to_context())
-        return options
+    def respond(self, text_response: str) -> str:
+        # Write to a file to upload to frontend
+        IMAGE_DIR = "images/"
+        image_path = self.current_node.name + '-' + self.current_event.name + '.jpg'
+        op = {
+            "image_path": IMAGE_DIR + image_path,
+            "text_response": text_response,
+            "node_name": self.current_node.name,
+            "node_connections": self.current_node.connections,
+            "player_name": self.player.name,
+            "player_health": self.player.health,
+            "player_inventory": self.player.inventory,
 
-    def visit_event(self, event, event_stage):
-        
-        self.current_event = event
-        cns = self.event_manager.visit_event(event, event_stage)
-        self.current_node.visit_event(event, cns['complete'])
-        if cns['type'] == "conversation":
-            print("Consequence of the action was a conversation type")
-            print(cns['prose'], "\n ------- \n")
+        }
+        return op
     
-    def take_action(self, inp):
-        if len(inp) == 2:
-            self.visit_event(inp['event'], inp['stage'])
-        else:
-            new_node = self.node_manager.get_node(inp['node'])
-            print("Entering new node:", new_node.name)
-            print("\n", new_node.description, "\n ------- \n")
+    def describe(self) -> str:
+        """Combine player, node, and event descriptions into one narrative."""
+        parts = [
+            self.player.describe(),
+            "",
+            self.current_node.describe(),
+            "",
+            (self.current_event.describe() if self.current_event else "No event in progress.")
+        ]
+        return "\n".join(parts)
+
+    def move_to(self, node_name: str) -> bool:
+        """
+        Attempts to move the player to the specified node.
+        Returns True if successful, False otherwise.
+        """
+        if node_name in self.current_node.connections:
+            new_node = node.GameNode.from_name(node_name)
             self.current_node = new_node
-            self.current_event = None
-    
-    def find_options(self):
-        events = self.current_node.find_available_events()
-        options = []
-        for event in events:
-            event_obj = self.event_manager.get_event(event)
-            options.append(event_obj.to_context())
-        return options
-    
-    def find_and_validate_options(self):
-        print("Finding options")
-        options = self.find_options()
-        if len(options) == 0:
-            print("No events available, moving to connecting node")
-            options = self.find_nodes()
-            
-        print(options, "\n ------- \n")
-        return options
+            self.player.location = node_name
+            if new_node.current_event:
+                self.current_event = event.Event.from_name(new_node.current_event)
+            else:
+                self.current_event = None
+            return True
+        return False
 
+    def perform_event(self) -> Any:
+        if not self.current_event:
+            return "There is no event to perform."
 
+        if self.current_event.event_type == "conversation":
+            self.conversation_turns += 1
 
-        
-if __name__ == '__main__':
-    game_dict = {
-        "player": "Tourist",
-        "event_log": [],
-        "node_log": [],
-        "current_node": "bar",
-        "current_event": "pink_conversation"
-    }
-    gs = GameState(game_dict)
-    #TODO get event name
-    
-    
+            if self.conversation_turns == 1:
+                self.conversation_history = []
+                self.locked_event = "conversation"
 
-    #while count:
-    gs.find_options()
-    eve = input("What event you want to do?\n---> ")
-    print("You entered:", eve)
-    user_input = input("What stage you want to do?\n---> ")
-    print("You entered:", user_input)
-    gs.visit_event(eve, user_input)
-    gs.find_available_stages()
+                if isinstance(self.current_event.consequence, list):
+                    return "\n".join(self.current_event.consequence[:2])
+                else:
+                    return self.current_event.consequence  # fallback for string-type
+
+            elif self.conversation_turns in {2, 3}:
+                return {
+                    "status": "awaiting_player_question",
+                    "context": self.current_event.consequence,
+                    "history": self.conversation_history
+                }
+
+            else:
+                self.move_to(self.current_event.end_node)
+                self.conversation_turns = 0
+                self.conversation_history = []
+                self.locked_event = None
+                return {
+                    "status": "movement_complete",
+                    "location": self.current_node.name,
+                    "description": self.current_node.describe()
+                }
