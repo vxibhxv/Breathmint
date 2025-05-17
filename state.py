@@ -4,6 +4,7 @@ import player as player
 import event as event
 import storage as st
 import json
+import subprocess
 
 class GameState:
     def __init__(self, data: dict[str, Any]):
@@ -103,6 +104,15 @@ class GameState:
                     "response": response, 
                     "location": self.current_node.name
                 }
+        elif self.current_event.event_type == "combat":
+            self.locked_event = "combat"
+            subprocess.run(["python", "combat.py", self.current_event.name])
+            self.move_to(self.current_event.end_node)
+            return {
+                "status": "movement_complete",
+                "location": self.current_node.name,
+                "description": self.current_node.describe()
+            }
         else:
             self.move_to(self.current_event.end_node)
             self.conversation_turns = 0
