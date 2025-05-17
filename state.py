@@ -3,6 +3,7 @@ import node as node
 import player as player
 import event as event
 import storage as st
+import json
 
 class GameState:
     def __init__(self, data: dict[str, Any]):
@@ -53,6 +54,9 @@ class GameState:
             "player_inventory": self.player.inventory,
 
         }
+        file_path = 'frontend/public/response.json'
+        with open(file_path, "w+") as f:
+            json.dump(op, f, indent=2)
         return op
     
     def describe(self) -> str:
