@@ -37,7 +37,8 @@ class Event:
         return cls(data)
 
     def save(self):
-        st.save_event(self.event_name, self.to_dict())
+        if self.event_name:
+            st.save_event(self.event_name, self.to_dict())
     
     def describe(self) -> str:
         chars = ", ".join(self.characters) or "no one"

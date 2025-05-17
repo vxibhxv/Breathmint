@@ -23,8 +23,6 @@ class GameState:
         """Convert game state to dictionary for saving"""
         op = {
             "player": self.player.save(),
-            "current_node": self.current_node.save(),
-            "current_event": self.current_event.save()
         }
         return op
     
@@ -39,9 +37,8 @@ class GameState:
     
     def respond(self, text_response: str) -> str:
         # Write to a file to upload to frontend
-        IMAGE_DIR = "images/"
         if self.current_event:
-            image_path = IMAGE_DIR + self.current_node.name + '-' + self.current_event.name + '.jpg'
+            image_path = self.current_node.name + '-' + self.current_event.name
         else:
             image_path = None
         op = {
@@ -76,6 +73,8 @@ class GameState:
         Returns True if successful, False otherwise.
         """
         if node_name in self.current_node.connections:
+            self.conversation_turns = 0
+            self.locked_event = None
             new_node = node.GameNode.from_name(node_name)
             self.current_node = new_node
             self.player.location = node_name
@@ -88,31 +87,29 @@ class GameState:
             return "There is no event to perform."
 
         if self.current_event.event_type == "conversation":
-            self.conversation_turns += 1
-
-            if self.conversation_turns == 1:
-                self.conversation_history = []
-                self.locked_event = "conversation"
-
-                if isinstance(self.current_event.consequence, list):
-                    return "\n".join(self.current_event.consequence[:2])
-                else:
-                    return self.current_event.consequence  # fallback for string-type
-
-            elif self.conversation_turns in {2, 3}:
-                return {
-                    "status": "awaiting_player_question",
-                    "context": self.current_event.consequence,
-                    "history": self.conversation_history
-                }
-
-            else:
+            self.locked_event = "conversation"
+            if self.conversation_turns >= len(self.current_event.consequence):
                 self.move_to(self.current_event.end_node)
-                self.conversation_turns = 0
-                self.conversation_history = []
-                self.locked_event = None
                 return {
                     "status": "movement_complete",
                     "location": self.current_node.name,
                     "description": self.current_node.describe()
                 }
+            else:
+                response = self.current_event.consequence[self.conversation_turns]
+                self.conversation_turns += 1
+                return {
+                    "status": "awaiting_player_question",
+                    "response": response, 
+                    "location": self.current_node.name
+                }
+        else:
+            self.move_to(self.current_event.end_node)
+            self.conversation_turns = 0
+            self.conversation_history = []
+            self.locked_event = None
+            return {
+                "status": "movement_complete",
+                "location": self.current_node.name,
+                "description": self.current_node.describe()
+            }

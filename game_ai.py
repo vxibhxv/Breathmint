@@ -39,13 +39,13 @@ class GameAI:
         try:
             matches = difflib.get_close_matches(user_node_name.lower(), [n.lower() for n in available_nodes], n=1, cutoff=0.6)
         except Exception as e:
-            return None
+            return user_node_name
         if matches:
             # Return the original node name (case-sensitive match)
             for node in available_nodes:
                 if node.lower() == matches[0]:
                     return node
-        return None
+        return user_node_name
     
     def classify_input(self, text, state):
         intent = self._apply_rules(text)
@@ -54,11 +54,15 @@ class GameAI:
             intent = self._gpt_classify(text)
 
         args = {}
+        if intent == "quit" or intent == "save":
+            state.save_game()
+            print("Quiting game...")
+            return
 
         if intent == "move_location":
             args = {
                 "action": "move_to",
-                "raw": self._match_node_name(text, state.current_node.connections)
+                "raw": text
             }
         elif intent == "sub_action":
             args = {
@@ -71,6 +75,29 @@ class GameAI:
                 "raw": text
             }
         return args
+    
+    def _extract_node(self, text_input: str, options):
+        prompt = f"""
+Player said: "{text_input}"
+
+Known nodes: {', '.join(options)}
+
+If the player is asking to move, return ONLY the node name. If it's not clear, return "unknown".
+"""
+
+        try:
+            response = self.client.messages.create(
+                model=self.model,
+                max_tokens=1000,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0
+            )
+            loc = response.content[0].text
+            print("Extracted node:", loc)
+            return loc
+        except Exception as e:
+            print("GPT error during node extraction:", e)
+            return None
 
     def process_command(self, classified: Dict, state) -> str:
         action = classified["action"]
@@ -83,8 +110,7 @@ class GameAI:
         elif action == "move_to":
             requested_node = take_action
             available = state.current_node.connections
-
-            matched_node = self._match_node_name(requested_node, available)
+            matched_node = self._extract_node(requested_node, available)
             if matched_node:
                 state.move_to(matched_node)
                 return self._gpt_wrap_movement(matched_node, state.current_node.describe())
@@ -96,26 +122,14 @@ class GameAI:
 
             # GPT handles interactive turns
             if isinstance(result, dict) and result.get("status") == "awaiting_player_question":
-                player_question = take_action
-                response = self._gpt_conversation(
-                    player_input=player_question,
-                    conversation_context=result["context"],
-                    history=result["history"]
-                )
-                state.conversation_history.append((player_question, response))
+                response = result["response"]
                 return response
 
             # GPT wraps up movement after conversation ends
             elif isinstance(result, dict) and result.get("status") == "movement_complete":
                 return self._gpt_wrap_movement(result["location"], result["description"])
-
-            # Turn 1: pre-written lines
             else:
                 return result
-
-
-        elif action == "quit":
-            return "Thanks for playing."
 
         return f"I don't understand: {take_action}"
 

@@ -6,8 +6,10 @@ import json
 # Setup
 ai = GameAI()
 
+
 data = st.get_game("Tourist")
 state = GameState(data)
+
 
 print(state.describe())
 
@@ -19,12 +21,12 @@ while True:
     else:
         # Normal classification
         classified = ai.classify_input(user_input, state)
+    
+    if classified["action"] == "quit":
+        print("Saving the game and quitting")
+        break
 
     response = ai.process_command(classified, state)
-    state.respond(response)
-
-    if classified["action"] == "quit":
-        print(response)
-        break
+    state.respond(response)    
 
     print(response)

@@ -24,7 +24,9 @@ class Player:
             "health": self.health,
             "max_health": self.max_health,
             "inventory": self.inventory.copy(),
-            "stats": self.stats.copy()
+            "stats": self.stats.copy(),
+            "location": self.location,
+            "relationships": self.relationships
         }
     
     @classmethod
