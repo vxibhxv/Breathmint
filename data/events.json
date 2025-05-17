@@ -1,381 +1,731 @@
 {
-  "ranger_story": {
-    "sequences": [
-      {
-        "name": "ranger_application_form",
-        "description": "The character completes a strange application form and is surprisingly offered the position of Green Ranger",
-        "event_type": "conversation",
-        "characters": [
-          "protagonist",
-          "servo_bot",
-          "captain_ordon"
-        ],
-        "start_node": "rhq_lobby",
-        "end_node": "rhq_central",
-        "consequence": [
-          "[FORM_QUESTION_1] Q1. You wake up gay. How do you respond?",
-          "[FORM_QUESTION_2] Q2. Do you love South Korea?",
-          "[FORM_QUESTION_3] Q3. Your mother makes dinner. Why?",
-          "[FORM_QUESTION_4] Q4. God is real. How do you respond?",
-          "[FORM_QUESTION_5] Q5. What is the escape velocity of Earth?",
-          "[FORM_QUESTION_6] Q6. Push ups or Pull ups? Justify.",
-          "[FORM_QUESTION_7] Q7. You're trying to sleep in an unfamiliar location. Mosquitoes drink your blood, the heat attracts more of them, you sweat and stink. Finally a bee buzzes next to you? How do you respond?",
-          "[PROCESSING_ANSWERS] -Please-Wait-Checking-Answers-",
-          "[INITIAL_IMPRESSION] Interesting questions at the very least. You wait.",
-          "[WAITING_PERIOD] You wait for a while. The servo-bot gets you a coffee while you watch the news.",
-          "[GREEN_RANGER_ABSENCE] He's really gone.",
-          "[OFFICIAL_ARRIVAL] The bot returns with a severe looking man in black robes.",
-          "[TOURIST_REACTION] [Tourist] Jig's up. Back on the road.",
-          "[BERET_REACTION] [Beret] Captain Ordon. An honor.",
-          "[RESEARCHER_REACTION] [Researcher] Good Morning Sir.",
-          "[CAPTAIN_ASSESSMENT] He looks at you, assessing how you stand, how you use your voice, how you shift your weight, how you avoid his gaze.",
-          "[JOY_CONNECTION] [JOY] Somehow, it reminds of you being scanned.",
-          "[SHOCKING_OFFER] \"I'm not sure how, but you've scored higher than anyone in the history of the Power Rangers program. A spot has just opened up. We'd like you to be the Green Ranger.\"",
-          "[TITLE_DROP] BREATH MINT"
-        ]
-      },
-      {
-        "name": "ranger_lobby_death",
-        "description": "Multiple characters converge in the RHQ lobby and witness news of the Rangers' deaths, leading to an opportunity",
-        "event_type": "conversation",
-        "characters": [
-          "researcher",
-          "green_beret",
-          "tourist",
-          "servo_bot",
-          "receptionist",
-          "security_guard",
-          "marketing_head"
-        ],
-        "start_node": "multiple_entry_points",
-        "end_node": "rhq_lobby",
-        "consequence": [
-          "[RESEARCHER_ENTRANCE] Everywhere is on lockdown, contingencies for contingencies are being planned. You find yourself murmuring \"How can I help?\"",
-          "[RESEARCHER_SECURITY] A man with a gun stops you. Oh, it's a security guard. Um, is he touching a member of staff?",
-          "[RESEARCHER_DIRECTIVE] \"There's some freak smoking a joint in the lobby. Could you be a doll and tell him to go?\" He jogs off.",
-          "[RESEARCHER_CURIOSITY] This you've got to see. Bold enough to be a ranger, stupid enough to be here.",
-          "[RESEARCHER_ARRIVAL] You walk past security to the glossy, blue pink lobby. A receptionist is staring in horror at the TV.",
-          
-          "[GREEN_BERET_ENTRANCE] Everywhere is on lockdown, contingencies for contingencies are being planned. At least they're taking the nukes seriously.",
-          "[GREEN_BERET_OVERHEARING] You overhear someone say Green Bull and KIA. The base commander has gone pale. \"no. no no non nono no no-\" he trails off.",
-          "[MARKETING_COMMAND] \"Cadet, tell the receptionist to keep the agit-prop fucks out of the building, NOW!\" roars a fat man in a suit.",
-          "[MARKETING_HEAD_IDENTITY] As you run past him, you spot head of marketing on his nametag. Figures.",
-          "[GREEN_BERET_ARRIVAL] You run past armed men to a glossy, blue-pink lobby. A receptionist is staring in horror at the TV.",
-          
-          "[TOURIST_THOUGHTS] Man, what a city! Sure its empty and racist and you're flat fucking broke, but its the best city to be high in. High.",
-          "[TOURIST_DECISION] That's right, the train takes you to the Ranger HQ. You've got to see what these heroes are up to.",
-          "[TRAIN_BOARDING] With a rumbling stomach and empty pockets, you get on the complimentary train the HQ. A Servo-Bot asks you if there's anything you'd like.",
-          "[WEED_REQUEST] Weed. It holds out its hand and palms a joint to you during a handshake. Tell no one. It leaves.",
-          "[PYRAMID_SIGHTING] A silver-pearlescent pyramid gleams in distance. Hills roll gently past a vast hunk of steel and pearlescent glass, your tracks lead right to it.",
-          "[TOURIST_ARRIVAL] As the train slows, you enter the glossy, blue-pink lobby. A receptionist is staring in horror at the TV.",
-          
-          "[NEWS_PROCESSING] Once you get your bearings, you try to believe what you're hearing. A Kaiju named Baby Green ripped through all the Rangers, starting with the Yellow.",
-          "[RANGER_DEATHS] Over the course of three hours, all the other rangers died fighting it. The Green Bull was the last to fall, his experimental Solarbeam going unused.",
-          "[GREEN_RANGER_FATE] In a brutal fight, the green ranger was dismembered. Viewer discretion is advised.",
-          "[GRIM_OBSERVATION] It's only half of him. Strong legs.",
-          "[SERVO_BOT_APPROACH] A servo-bot rolls up to you, offering you a form.",
-          "[OPPORTUNITY_PRESENTED] \"Chance of a lifetime!\" it beeps and boops.",
-          "[COLOR_PENS] 5 coloured pens sit on in a holder attached to the bot. Test time.",
-          "[FORM_COMPLETION] You find a comfortable seat, and the servo-bot joins you, helpfully holding pens."
-        ]
-      },
-      {
-        "name": "tourist_hotel_awakening",
-        "description": "A tourist wakes up hungover in a hotel room in Seoul with an empty wallet",
-        "event_type": "conversation",
-        "characters": [
-          "tourist"
-        ],
-        "start_node": "hotel",
-        "end_node": "hotel",
-        "consequence": [
-          "[HUNGOVER_AWAKENING] Your head hurts. You move like you're underwater, eyes heavy, skull sloshing like a balloon. A soft voice rings around your skull, siballance tearing a hole in your barely settled skin.",
-          "[WAKEUP_TIME] \"2 p.m.\"",
-          "[SELF_QUESTIONING] Nice. What time did you sleep last night? Where did you wake up?",
-          "[ROOM_DESCRIPTION] A hotel room, it looks like. You see familiar Clothes and smells scattered across the room. A bed, a table and chair, a door that's probably a bathroom.",
-          "[CLUMSY_MOVEMENT] You tumble off the bed, landing with the grace of a bull. You see a passport with your name and face on it. A wallet, with no money.",
-          "[TOURIST_OUTFIT] You're wearing a green flowery shirt, and green quilted shorts. You've survived Johanessburg, Cairo and Guatamala in these threads, looking fly the whole time.",
-          "[IDENTITY_PROMPT] What does the passport say? Who does it describe?",
-          "[PHILOSOPHICAL_MOMENT] You're reminded of something a friend once told you. Only once we free ourselves from the shackles of money can we be free. Of course he was trying to bum a couple of grams of the green stuff off you.",
-          "[MIRROR_REFLECTION] Liberated as you are, you look in the mirror and see only yourself, a flower shirt and green shorts over sunken skin."
-        ]
-      },
-      {
-        "name": "grocery_store_brawl",
-        "description": "The tourist's encounter with local youths at a grocery store that leads to a confrontation",
-        "event_type": "combat",
-        "characters": [
-          "tourist",
-          "storekeeper",
-          "korean_youths"
-        ],
-        "start_node": "grocery_store",
-        "end_node": "grocery_store",
-        "consequence": [
-          "[SENSORY_OVERLOAD] Everything is flashy. Your eyes hurt, your head throbs. Just looking at Plasticky tofu makes your belly rumble. That joint did a number on you.",
-          "[HUNGER_WITHOUT_MONEY] You've got the munchies, but no monies.",
-          "[STORE_WANDERING] You drift across the tiny store like a starving ship, empty, stumbling, sad. Everything makes you wish you had money, from the smokes to the water.",
-          "[YOUTHS_ENTER] Youths enter the store. (youths? What are you, 30? Cmon old man) They chat with the storekeep in Korean.",
-          "[LANGUAGE_BARRIER] You hear the word Neul-geun-i, which is a not nice way of saying old man. They laugh, he doesn't. His lips tighten. You've seen this before. Time to go.",
-          "[CONFRONTATION_BEGINS] By the exit, one of the boys stops you. \"Gug-Oeja?\" \"Good Ouija to you too.\" (korean) a fucking comedian. They seem mad.",
-          "[BRAWL_AFTERMATH] Your head hurts, your body hurts, your knuckles hurt, your lungs scream. The storekeep stands over a boy who tried to make a break for the exit with some Marlboro Reds(terrible cigarettes), a foot on his chest.",
-          "[RACIST_DISMISSAL] \"Leave, (racist term)guai lo. \" wow, in English too.",
-          "[LOST_TOURIST] \"And go where?\"",
-          "[MONUMENT_SUGGESTION] \"Ranger monument, all you fucking tourists go there.\"",
-          "[TOURIST_DECISION] Twice in one night. Might as well check it out."
-        ]
-      },
-      {
-        "name": "monument_to_rhq",
-        "description": "The tourist visits the Ranger Monument while high and takes a train to Ranger HQ",
-        "event_type": "conversation",
-        "characters": [
-          "tourist",
-          "servo_bot",
-          "receptionist"
-        ],
-        "start_node": "monument",
-        "end_node": "rhq_lobby",
-        "consequence": [
-          "[PARK_RESTRICTIONS] The park's gates list dozens of things you can't do inside, mentioning the word cannabis in 6 different languages. Still, it doesn't look like anyone's around.",
-          "[EMPTY_CITY] Guess racist Korea doesn't get too many tourists anymore.",
-          "[SMOKING_JOINT] You light up as you wander through the park, the lights of residential blocks steadily burning above you, dull billboards shiny but silent.",
-          "[DESERTED_SURROUNDINGS] A train shoots by overhead, empty. It's 5 in the evening, you'd think there would be more children at a park. Lucky though, you'd probably have to put away your perfectly rolled buddy away.",
-          "[PEACEFUL_ATMOSPHERE] You take a deep puff as a mossy fountain bubbles at you. You see grass cracking through the stones of the path. You hear the wind shimmer through the trees.",
-          "[MYSTERIOUS_SILENCE] Why you don't hear any people is a mystery.",
-          "[MONUMENT_DISCOVERY] Finally, when you're halfway though the joint and almost at your peak high, you see it. You're amazed you didn't see it sooner.",
-          "[MONUMENT_DESCRIPTION] On a rocky hill, colorful heroes plant a mighty flag. Pink hands try to reach the pole, yellow arms grasp it tight. A powerfully built blue body hoists it high, while a perfect hero, Red and Ready smashes the pole into the stones of the earth, holding a glowing Won in his other hand. You can just make out a green figure, but he's on the other side of the heroes.",
-          "[MONUMENT_PLAQUE] A plaque reads, The Mighty Morphin' Power Rangers.",
-          "[TOURIST_APPRECIATION] Man, what a city! Sure its empty and racist and you're flat fucking broke, but its the best city to be high in. High.",
-          "[RANGER_HQ_REALIZATION] That's right, the train takes you to the Ranger HQ. You've got to see what these heroes are up to.",
-          "[TRAIN_BOARDING] With a rumbling stomach and empty pockets, you get on the complimentary train the HQ. A Servo-Bot asks you if there's anything you'd like.",
-          "[SERVO_BOT_WEED] It holds out its hand and palms a joint to you during a handshake. Tell no one. It leaves.",
-          "[PYRAMID_SIGHTING] A silver-pearlescent pyramid gleams in distance. Hills roll gently past a vast hunk of steel and pearlescant glass, your tracks lead right to it.",
-          "[ARRIVAL_AT_LOBBY] As the train slows, you enter the glossy, blue-pink lobby. A receptionist is staring in horror at the TV."
-        ]
-      },
-      {
-        "name": "joy_ai_encounter",
-        "description": "A researcher's early morning encounter with JOY, the South Korean Military AI responsible for ranger research",
-        "event_type": "conversation",
-        "characters": [
-          "researcher",
-          "joy_ai",
-          "dr_abdul_qasir"
-        ],
-        "start_node": "dorms",
-        "end_node": "joy_lab",
-        "consequence": [
-          "[AWAKENING] She put on her glasses as she slips out of bed. Buckling her Lab coat, she tiptoes like a shadow, following the voice.",
-          "[FOLLOWING_VOICE] It winds up a stairwell, which she takes two at a time. She comes face to face with a window, a sign reads JOY.",
-          "[JOY_DESCRIPTION] JOY: The South Korean Military AI, responsible for all ranger research and development.",
-          "[JOY_RUMOR] A cadet rumour started last week that with its new patch, it looks exactly like what you desire most in the world.",
-          "[RESEARCHER_PERSPECTIVE] You know better.",
-          "[JOY_REALITY] It appears exactly as you see it. Whatever will be, will be. Whatever is, is.",
-          "[ENTERING_LAB] JOY's voice sings que sera sera as you enter the room. She isn't supposed to be in the lab, no one is.",
-          "[JOY_APPEARANCE] The room bristles red. The screens flash, revealing red pipes criss-crossing gray concrete like scarred flesh. She floats in front of you.",
-          "[JOY_QUESTION] I can't see you, what do you look like?",
-          "[JOY_SCANNING] She runs a patchwork of lasers, scanning you. A red light slowly takes shape.",
-          "[JOY_SPEAKING] \"Did you really like my singing?\" She asks, kind of robotically.",
-          "[INTERRUPTION] Before you can say else, the door clicks open. Dr. Abdul Qasir stands in the doorway, coffee steaming in his cup.",
-          "[QASIR_GREETING] \"My favourite student. Early morning?\"",
-          "[RESEARCHER_RESPONSE] \"Late night.\" He grins. \"She started singing to me in my sleep, I just followed her voice.\"",
-          "[QASIR_EXPLANATION] \"Ah yeah, she does that.\" He continues smiling. \"It means she likes you.\"",
-          "[RESEARCHER_REACTION] You're not sure how to feel about that. \"Get some breakfast kiddo.\"",
-          "[QASIR_BEHAVIOR] He looks up from his reading list and smiles (wow he's smiling a lot).",
-          "[LEAVING_JOY] With one last look, you leave JOY behind."
-        ]
-      },
-      {
-        "name": "yellow_ranger_encounter_and_green_death",
-        "description": "A breakfast encounter with the Yellow Ranger followed by witnessing the Green Ranger's death in the lab",
-        "event_type": "conversation",
-        "characters": [
-          "researcher",
-          "yellow_ranger",
-          "joy_ai",
-          "dr_qasir",
-          "dr_moon",
-          "dr_han",
-          "green_ranger",
-          "red_ranger"
-        ],
-        "start_node": "mess_hall",
-        "end_node": "rhq_lab",
-        "consequence": [
-          "[BREAKFAST_PREP] Its just you in the hall, but robots get to making the regular, a toasted peanut butter and banana sandwich with a cortado.",
-          "[YELLOW_ENTRANCE] As you watch it being prepared, a man clanks into the hall. Clad in ill-fitting yellows, his metal helmet clangs against the lights.",
-          "[YELLOW_GREETING] \"Pardon me!\" he says, stomping next to you, grabbing your shoulder to keep his balance.",
-          "[FOOD_READY] Your breakfast is ready. \"Ham sandwich, orange juice.\" He says, turning to follow you to your table.",
-          "[YELLOW_INTRODUCTION] \"Um. I'm a power ranger. Like, with a Zword and stuff. I have two kids, they were just here. I have a loving wife-\" Lord Almighty, this might go on for the entire duration of your sandwich.",
-          "[YELLOW_ADMISSION] \"No I'd say they respect me as much I deserve.\" He lets that hang in the air.",
-          "[HEADING_TO_LAB] You head to the lab, thinking about your sandwich. And your research project, the green bull.",
-          "[PROJECT_DESCRIPTION] Not the guy, the 12-ton Emerald Green Bull. You're writing your doctorate on improvements you've suggested to its Solar Energy system.",
-          "[ALARM_BEGINNING] You have the time to look at your diagrams and to-do list for the day when the screen starts flashing red.",
-          "[EMERGENCY_ALERT] A giant red ! pulses brightly while an air raid siren plays. You catch a glimpse of JOY in the red.",
-          "[JOY_REACTION] Her eyes are focused, she's squinting. It makes the little girl look much older.",
-          "[DOCTORS_ARGUING] Dr. Qasir starts talking. Dr. Moon immediately contradicts him. Dr. Han yells and points at the live-video screen.",
-          "[RANGER_INJURY] The red ranger's body sticks out a green ooze, his skull boiling as it sloughs of him in chunks. No other rangers are present.",
-          "[GREEN_BULL_ATTACK] Sunlight enters the frame, and with it the green bull. It smashes into the Slime's head, a tightly congealed chunk, shimmerring with colours.",
-          "[SOLAR_BEAM_ACTIVATION] Your red graph rockets up your screen, before you know it, the system is asking for permission to send power to the solarbeam.",
-          "[VITALS_DROPPING] His vitals drop.",
-          "[DELAYED_RESPONSE] Oh god. A millisecond faster, and he wouldn't be in half. Killed by red tape.",
-          "[GREEN_RANGER_DEATH] You're pushed out of the room as draconic jaws close around the Green Ranger's torso."
-        ]
-      },
-      {
-        "name": "morning_routine_sequence",
-        "description": "The protagonist's morning routine and preparation for the Green Ranger's speech, with discussions about Rangers and nuclear capabilities",
-        "event_type": "conversation",
-        "characters": [
-          "protagonist",
-          "ju-hye",
-          "commander",
-          "green_ranger"
-        ],
-        "start_node": "barracks",
-        "end_node": "conference_hall",
-        "consequence": [
-          "[PEACEFUL_MORNING] It's a nice morning. The base is calm, the dawn is unfurling the world, people are rising to meet it.",
-          "[SLEEPING_COMRADES] His friends lie sleeping in their beds, his comrades, his fellow cadets. The Korean army is a professional organization.",
-          "[MORNING_ROUTINE] He is dressed, combed and exercising in 10 minutes. He runs alongside a river. He circles it smoothly.",
-          "[JU_HYE_APPEARANCE] Ju-hye runs by him, like a leopard. When she circles the lake, she finds him doing push-ups.",
-          "[JU_HYE_OFFER] \"Need some help with crunches?\" She grins.",
-          "[SHOWERING] After a heavy workout, you return to shower. Your fellow marines jiggle and dangle around you, hard with muscle. Steam percolates on your face as you shave.",
-          "[CO_ADDRESS] As you dress for a military formal event, your CO addresses you Barrack.",
-          "[GREEN_RANGER_POSITION] \"You 12 are considered promising. The Green Ranger is a prestigious position.\"",
-          "[CO_EXPECTATIONS] \"I expect you all to be on your best behaviour. He does not often give talks, and he's sure to impart sound advice.\"",
-          "[BREAKFAST_WITH_JU_HYE] You spend the morning cooking, serving, then eating breakfast. It's nice though, Ju-Hye gives you company.",
-          "[JU_HYE_FLEXING] You catch her flexing instead of cutting vegetables.",
-          "[RELAXING_BREAKFAST] As you eat, Ju-Hye rests her head on your lap. \"Early morning?\"",
-          "[NUCLEAR_NEGOTIATIONS] \"Long night,\" you say. \"Commander is negotiating nuclear weapons with the Rangers.\"",
-          "[JU_HYE_WAKING] She gets up, rubs the sleep from her eyes.",
-          "[AMERICANS_STALLING] \"We want the rangers to have them, but the Americans are stalling.\"",
-          "[RADIATION_EXPLANATION] \"Why?\" \"Rangers detected radiation in the last one they killed. And on the Green Ranger. He's got cancer.\"",
-          "[MEANINGFUL_LOOK] She looks deep into your eyes.",
-          "[STRIKE_QUESTION] \"Will we strike first?\"",
-          "[COMMANDER_ARRIVAL] The commander comes in. \"Ready?\"",
-          "[FORMAL_SALUTE] Both of you salute. \"Sir Yes Sir.\"",
-          "[COMMANDER_COMMENT] \"Good. This is a rare opportunity. The Ranger loves to teach, but he does not often speak.\"",
-          "[MARCHING_TO_HALL] You both march with the Commander, as he greets cadets, sergeants and captains.",
-          "[JU_HYE_CONCERN] \"I don't like how many people there are\" Ju-Hye mutters. \"Speak up, Soldier\" the Commander says, as you take your seats in the conference hall.",
-          "[CASUALTIES_EXPECTED] \"This is a forward base, Sir. Casualties are expected.\"",
-          "[GREEN_RANGER_ENTRANCE] He's about to respond when the Green Ranger walks to the stage. As he approaches the podium, his visored face scanned the audience, his helmet soaking light like a tree. Armored in wood and brown metal, green shimmers across his form as he begins to speak."
-        ]
-      },
-      {
-        "name": "green_ranger_interaction",
-        "description": "Post-speech interactions with the Green Ranger, including a personal assessment and encouragement to become a ranger",
-        "event_type": "conversation",
-        "characters": [
-          "protagonist",
-          "green_ranger",
-          "commander",
-          "ju-ye"
-        ],
-        "start_node": "conference_hall",
-        "end_node": "mess",
-        "consequence": [
-          "[EMOTIONAL_SPEECH] After the speech, you're sure he's crying under the mask, manly tears of pride. The power of youth has faded from his body, the wealth of experience glitters like gold off his pauldrons.",
-          "[JU_YE_REACTION] Ju-ye is crying too, but she glares at you when you make eye contact. The commander walks over to the green ranger and walks him to the exit.",
-          "[HALL_ATMOSPHERE] The hall is filled with a heady mix of optimism, ambition and pride. This is what serving South Korea is for.",
-          "[LUNCH_INVITATION] So, lunch? Ju-ye asks. You're about to agree when your caller beeps, and you're summoned by the hammer to the armory. Rain check, you say.",
-          "[APPROACHING_ARMORY] Marching to the Armory, the door is slightly ajar, a massive security violation. You enter, service revolver drawn, to see the hammer and the green ranger laughing like old friends.",
-          "[WELCOMED_IN] They wave you in. You close the door and step towards the heroes.",
-          "[CASUAL_INTERROGATION] What's your name son? Yeah? which city did you enlist in? He's quite a prodigy, he's been with the mission, covering himself in glory.",
-          "[NAVY_BANTER] Really? He smiles at you. He's 12-0 against the navy cadets. Lots of navy cadets are bitches. My dad was in the navy. Your father is a bitch.",
-          "[AWKWARD_MOMENT] They look deep at each other, and you glance at the exit.",
-          "[LAUGHING_RANGERS] They roar in laughter. I'd ask if you've said it to his face, but advice often slides off the blue ranger's oiled head.",
-          "[GREEN_LAUGHTER] The green laughs harder. When they're done, they seem to be expecting you to say something.",
-          "[TOUGH_STANDARD] You've picked a tough bar for pride. Still, I remember when I looked up to him. He was my first CO in Korea.",
-          "[TYKE_TRAINING] Training the tykes now. You'd be surprised how much of my time is spent making them fuck. On which note, how's Ju-ye?",
-          "[RANGER_SUGGESTION] The green looks pensive. You know, there's something Hammer told me when I was about to put on the suit. I think you should try to be a ranger.",
-          "[HEART_COMMENT] You've got what it takes. A Heart.",
-          "[GREEN_DEPARTURE] He walks out the door, green half-cape swishing. The base commander tells you to lock the door behind you. He does leave you unattended in the armory.",
-          "[SANDWICH_GIFT] No more food will be served today, but you pick up a sandwich with a note, don't go hungry greenhead. You assume it's from Ju-ye. Item gained"
-        ]
-      },
-      {
-        "name": "emergency_deployment",
-        "description": "An evening in the barracks followed by an urgent emergency call that leads to a military deployment to assist the Green Ranger",
-        "event_type": "conversation",
-        "characters": [
-          "protagonist",
-          "ju-ye",
-          "commander",
-          "green_ranger"
-        ],
-        "start_node": "barracks",
-        "end_node": "pyramid",
-        "consequence": [
-          "[EVENING_BARRACKS] 6 other cadets mill about the room, reading, shaving. Two are eyeing each other, you're sure one of their beds will be empty tonight.",
-          "[BUNK_DESCRIPTION] Your bunk is number 7. All your stuff is packed neatly under your bed, and the top bunk is equally organized. A small name tag reads Property of Ju-ye.",
-          "[JU_YE_ARRIVAL] As you prepare, Ju-ye walks in, and in a few smooth motions, takes off her boots, undoes her shirt and jumps clean over you onto the top bunk, snuggling into her blankets.",
-          "[REST_CONSIDERATION] It does look quite inviting to join her, but you could do with rest.",
-          "[EMERGENCY_CALL] In the morning, you're woken by your caller beeping. You skim the words urgent immediate emergency code green and are dressed in a minute.",
-          "[QUICK_DEPARTURE] Before Ju-ye can say good morning, you're out the door. The commander is waiting for you outside the door, and you both brisk walk to a waiting jeep.",
-          "[RANGER_REQUEST] Rumbling through green terrain, the hammer tells you the green ranger has requested military back-up, and as the nearest base to Seoul, the entire base will be mobilized.",
-          "[VTOL_BOARDING] You run onto the flat tarmac of an airfield. A VTOL is heating its engines as the commander sprints into its gaping metal maw.",
-          "[AERIAL_VIEW] You strap in, and the steel floor is replaced with a camera feed. The purple lights of Neo Seoul glitter under you as you leave the city's airspace.",
-          "[RESTRICTED_AREA] Radio chatter informs you of entering a restricted area, and the pilot responds with codes in Korean Alphanumeric.",
-          "[COMMANDER_CONCERN] He's never called in an assist before. Well, we're usually the ones on death ground. The commander shakes his head. He's come out of worse.",
-          "[COMMANDER_DOUBT] His lips tighten. He's trying to convince himself. You've seen this before. Time to step up.",
-          "[PYRAMID_LANDING] The VTOL lands on a silver pearlescent pyramid, glowing with colors. A morning sun glows with energy, the shimmering pyramid appearing like a dream.",
-          "[COMMANDER_LEAP] As the landing suspensors engage, the commander unstraps himself and leaps from the plane 10 metres onto the ground."
-        ]
-      },
-      {
-        "name": "pink_conversation",
-        "description": "A conversation between the bartender, tourist and pink ranger, Vanessa",
-        "event_type": "conversation",
-        "characters": [
-          "bartender",
-          "pink_ranger"
-        ],
-        "start_node": "bar",
-        "end_node": "monument",
-        "consequence": [
-          "[PINK_EYES] Eyes gleam at you from across the bar. You'd swear they look pink, if that wasn't impossible.",
-          "[APPROACHING_FIGURE] The owner of the eyes saunters your way, swaying like a candle. Her brown hair falls to her left as she tilts her head to get a better look at you",
-          "[SITTING_DOWN] She slumps onto the seat next to you, round eyes still gleaming. Her upturned nose sniffs, and her breaths get lighter.",
-          "[DEATH_COMMENT] You smell like death.' she says, with finality. She snaps her fingers at the bartender, pointing at your empty glass.",
-          "[CRYING_WOMAN] As your cup is being filled, you notice she's crying. Before you can say anything, she lays her head on the bar and snores softly.",
-          "[BARTENDER_REACTION] 'Keep em coming big man' you say to the bartender, who freezes you in place with a high Korean eyebrow arch. Oof, a classic.",
-          "[TAB_SUGGESTION] 'Just Put it on her tab', you suggest. The bartender rumbles. 'No.'",
-          "[BARTENDER_GLANCE] The bartender steals a glance at the sleeping, drooling woman next to you.",
-          "[MONUMENT_DIRECTION] The Ranger Monument. All you fucking tourists go there.",
-          "[SEOUL_ADVICE] While it can be hard to tell the difference between them, advice is better than threats in Seoul."
-        ]
-      }
+  "ranger_application_form": {
+    "name": "ranger_application_form",
+    "description": "The character completes a strange application form and is surprisingly offered the position of Green Ranger",
+    "event_type": "conversation",
+    "characters": [
+      "protagonist",
+      "servo_bot",
+      "captain_ordon"
     ],
-    "meta": {
-      "title": "Ranger Chronicles: Neo Seoul",
-      "version": "1.0",
-      "author": "Anonymous",
-      "game_type": "Visual Novel",
-      "setting": "Futuristic South Korea",
-      "main_characters": [
-        {
-          "name": "Protagonist",
-          "role": "Military Cadet"
-        },
-        {
-          "name": "Ju-ye",
-          "role": "Fellow Cadet"
-        },
-        {
-          "name": "Green Ranger",
-          "role": "Legendary Hero"
-        },
-        {
-          "name": "Commander",
-          "role": "Base Leader"
-        },
-        {
-          "name": "Pink Ranger",
-          "role": "Mysterious Ranger"
-        }
-      ]
-    }
+    "start_node": "rhq_lobby",
+    "end_node": "rhq_central",
+    "consequence": [
+      "[FORM_QUESTION_1] Q1. You wake up gay. How do you respond?",
+      "[FORM_QUESTION_2] Q2. Do you love South Korea?",
+      "[FORM_QUESTION_3] Q3. Your mother makes dinner. Why?",
+      "[FORM_QUESTION_4] Q4. God is real. How do you respond?",
+      "[FORM_QUESTION_5] Q5. What is the escape velocity of Earth?",
+      "[FORM_QUESTION_6] Q6. Push ups or Pull ups? Justify.",
+      "[FORM_QUESTION_7] Q7. You're trying to sleep in an unfamiliar location. Mosquitoes drink your blood, the heat attracts more of them, you sweat and stink. Finally a bee buzzes next to you? How do you respond?",
+      "[PROCESSING_ANSWERS] -Please-Wait-Checking-Answers-",
+      "[INITIAL_IMPRESSION] Interesting questions at the very least. You wait.",
+      "[WAITING_PERIOD] You wait for a while. The servo-bot gets you a coffee while you watch the news.",
+      "[GREEN_RANGER_ABSENCE] He's really gone.",
+      "[OFFICIAL_ARRIVAL] The bot returns with a severe looking man in black robes.",
+      "[TOURIST_REACTION] [Tourist] Jig's up. Back on the road.",
+      "[BERET_REACTION] [Beret] Captain Ordon. An honor.",
+      "[RESEARCHER_REACTION] [Researcher] Good Morning Sir.",
+      "[CAPTAIN_ASSESSMENT] He looks at you, assessing how you stand, how you use your voice, how you shift your weight, how you avoid his gaze.",
+      "[JOY_CONNECTION] [JOY] Somehow, it reminds of you being scanned.",
+      "[SHOCKING_OFFER] \"I'm not sure how, but you've scored higher than anyone in the history of the Power Rangers program. A spot has just opened up. We'd like you to be the Green Ranger.\"",
+      "[TITLE_DROP] BREATH MINT"
+    ]
+  },
+  "ranger_lobby_death": {
+    "name": "ranger_lobby_death",
+    "description": "Multiple characters converge in the RHQ lobby and witness news of the Rangers' deaths, leading to an opportunity",
+    "event_type": "conversation",
+    "characters": [
+      "researcher",
+      "green_beret",
+      "tourist",
+      "servo_bot",
+      "receptionist",
+      "security_guard",
+      "marketing_head"
+    ],
+    "start_node": "multiple_entry_points",
+    "end_node": "rhq_lobby",
+    "consequence": [
+      "[RESEARCHER_ENTRANCE] Everywhere is on lockdown, contingencies for contingencies are being planned. You find yourself murmuring \"How can I help?\"",
+      "[RESEARCHER_SECURITY] A man with a gun stops you. Oh, it's a security guard. Um, is he touching a member of staff?",
+      "[RESEARCHER_DIRECTIVE] \"There's some freak smoking a joint in the lobby. Could you be a doll and tell him to go?\" He jogs off.",
+      "[RESEARCHER_CURIOSITY] This you've got to see. Bold enough to be a ranger, stupid enough to be here.",
+      "[RESEARCHER_ARRIVAL] You walk past security to the glossy, blue pink lobby. A receptionist is staring in horror at the TV.",
+      
+      "[GREEN_BERET_ENTRANCE] Everywhere is on lockdown, contingencies for contingencies are being planned. At least they're taking the nukes seriously.",
+      "[GREEN_BERET_OVERHEARING] You overhear someone say Green Bull and KIA. The base commander has gone pale. \"no. no no non nono no no-\" he trails off.",
+      "[MARKETING_COMMAND] \"Cadet, tell the receptionist to keep the agit-prop fucks out of the building, NOW!\" roars a fat man in a suit.",
+      "[MARKETING_HEAD_IDENTITY] As you run past him, you spot head of marketing on his nametag. Figures.",
+      "[GREEN_BERET_ARRIVAL] You run past armed men to a glossy, blue-pink lobby. A receptionist is staring in horror at the TV.",
+      
+      "[TOURIST_THOUGHTS] Man, what a city! Sure its empty and racist and you're flat fucking broke, but its the best city to be high in. High.",
+      "[TOURIST_DECISION] That's right, the train takes you to the Ranger HQ. You've got to see what these heroes are up to.",
+      "[TRAIN_BOARDING] With a rumbling stomach and empty pockets, you get on the complimentary train the HQ. A Servo-Bot asks you if there's anything you'd like.",
+      "[WEED_REQUEST] Weed. It holds out its hand and palms a joint to you during a handshake. Tell no one. It leaves.",
+      "[PYRAMID_SIGHTING] A silver-pearlescent pyramid gleams in distance. Hills roll gently past a vast hunk of steel and pearlescent glass, your tracks lead right to it.",
+      "[TOURIST_ARRIVAL] As the train slows, you enter the glossy, blue-pink lobby. A receptionist is staring in horror at the TV.",
+      
+      "[NEWS_PROCESSING] Once you get your bearings, you try to believe what you're hearing. A Kaiju named Baby Green ripped through all the Rangers, starting with the Yellow.",
+      "[RANGER_DEATHS] Over the course of three hours, all the other rangers died fighting it. The Green Bull was the last to fall, his experimental Solarbeam going unused.",
+      "[GREEN_RANGER_FATE] In a brutal fight, the green ranger was dismembered. Viewer discretion is advised.",
+      "[GRIM_OBSERVATION] It's only half of him. Strong legs.",
+      "[SERVO_BOT_APPROACH] A servo-bot rolls up to you, offering you a form.",
+      "[OPPORTUNITY_PRESENTED] \"Chance of a lifetime!\" it beeps and boops.",
+      "[COLOR_PENS] 5 coloured pens sit on in a holder attached to the bot. Test time.",
+      "[FORM_COMPLETION] You find a comfortable seat, and the servo-bot joins you, helpfully holding pens."
+    ]
+  },
+  "tourist_hotel_awakening": {
+    "name": "tourist_hotel_awakening",
+    "description": "A tourist wakes up hungover in a hotel room in Seoul with an empty wallet",
+    "event_type": "conversation",
+    "characters": [
+      "tourist"
+    ],
+    "start_node": "hotel",
+    "end_node": "hotel",
+    "consequence": [
+      "[HUNGOVER_AWAKENING] Your head hurts. You move like you're underwater, eyes heavy, skull sloshing like a balloon. A soft voice rings around your skull, siballance tearing a hole in your barely settled skin.",
+      "[WAKEUP_TIME] \"2 p.m.\"",
+      "[SELF_QUESTIONING] Nice. What time did you sleep last night? Where did you wake up?",
+      "[ROOM_DESCRIPTION] A hotel room, it looks like. You see familiar Clothes and smells scattered across the room. A bed, a table and chair, a door that's probably a bathroom.",
+      "[CLUMSY_MOVEMENT] You tumble off the bed, landing with the grace of a bull. You see a passport with your name and face on it. A wallet, with no money.",
+      "[TOURIST_OUTFIT] You're wearing a green flowery shirt, and green quilted shorts. You've survived Johanessburg, Cairo and Guatamala in these threads, looking fly the whole time.",
+      "[IDENTITY_PROMPT] What does the passport say? Who does it describe?",
+      "[PHILOSOPHICAL_MOMENT] You're reminded of something a friend once told you. Only once we free ourselves from the shackles of money can we be free. Of course he was trying to bum a couple of grams of the green stuff off you.",
+      "[MIRROR_REFLECTION] Liberated as you are, you look in the mirror and see only yourself, a flower shirt and green shorts over sunken skin."
+    ]
+  },
+  "grocery_store_brawl": {
+    "name": "grocery_store_brawl",
+    "description": "The tourist's encounter with local youths at a grocery store that leads to a confrontation",
+    "event_type": "combat",
+    "characters": [
+      "tourist",
+      "storekeeper",
+      "korean_youths"
+    ],
+    "start_node": "grocery_store",
+    "end_node": "grocery_store",
+    "consequence": [
+      "[SENSORY_OVERLOAD] Everything is flashy. Your eyes hurt, your head throbs. Just looking at Plasticky tofu makes your belly rumble. That joint did a number on you.",
+      "[HUNGER_WITHOUT_MONEY] You've got the munchies, but no monies.",
+      "[STORE_WANDERING] You drift across the tiny store like a starving ship, empty, stumbling, sad. Everything makes you wish you had money, from the smokes to the water.",
+      "[YOUTHS_ENTER] Youths enter the store. (youths? What are you, 30? Cmon old man) They chat with the storekeep in Korean.",
+      "[LANGUAGE_BARRIER] You hear the word Neul-geun-i, which is a not nice way of saying old man. They laugh, he doesn't. His lips tighten. You've seen this before. Time to go.",
+      "[CONFRONTATION_BEGINS] By the exit, one of the boys stops you. \"Gug-Oeja?\" \"Good Ouija to you too.\" (korean) a fucking comedian. They seem mad.",
+      "[BRAWL_AFTERMATH] Your head hurts, your body hurts, your knuckles hurt, your lungs scream. The storekeep stands over a boy who tried to make a break for the exit with some Marlboro Reds(terrible cigarettes), a foot on his chest.",
+      "[RACIST_DISMISSAL] \"Leave, (racist term)guai lo. \" wow, in English too.",
+      "[LOST_TOURIST] \"And go where?\"",
+      "[MONUMENT_SUGGESTION] \"Ranger monument, all you fucking tourists go there.\"",
+      "[TOURIST_DECISION] Twice in one night. Might as well check it out."
+    ]
+  },
+  "monument_to_rhq": {
+    "name": "monument_to_rhq",
+    "description": "The tourist visits the Ranger Monument while high and takes a train to Ranger HQ",
+    "event_type": "conversation",
+    "characters": [
+      "tourist",
+      "servo_bot",
+      "receptionist"
+    ],
+    "start_node": "monument",
+    "end_node": "rhq_lobby",
+    "consequence": [
+      "[PARK_RESTRICTIONS] The park's gates list dozens of things you can't do inside, mentioning the word cannabis in 6 different languages. Still, it doesn't look like anyone's around.",
+      "[EMPTY_CITY] Guess racist Korea doesn't get too many tourists anymore.",
+      "[SMOKING_JOINT] You light up as you wander through the park, the lights of residential blocks steadily burning above you, dull billboards shiny but silent.",
+      "[DESERTED_SURROUNDINGS] A train shoots by overhead, empty. It's 5 in the evening, you'd think there would be more children at a park. Lucky though, you'd probably have to put away your perfectly rolled buddy away.",
+      "[PEACEFUL_ATMOSPHERE] You take a deep puff as a mossy fountain bubbles at you. You see grass cracking through the stones of the path. You hear the wind shimmer through the trees.",
+      "[MYSTERIOUS_SILENCE] Why you don't hear any people is a mystery.",
+      "[MONUMENT_DISCOVERY] Finally, when you're halfway though the joint and almost at your peak high, you see it. You're amazed you didn't see it sooner.",
+      "[MONUMENT_DESCRIPTION] On a rocky hill, colorful heroes plant a mighty flag. Pink hands try to reach the pole, yellow arms grasp it tight. A powerfully built blue body hoists it high, while a perfect hero, Red and Ready smashes the pole into the stones of the earth, holding a glowing Won in his other hand. You can just make out a green figure, but he's on the other side of the heroes.",
+      "[MONUMENT_PLAQUE] A plaque reads, The Mighty Morphin' Power Rangers.",
+      "[TOURIST_APPRECIATION] Man, what a city! Sure its empty and racist and you're flat fucking broke, but its the best city to be high in. High.",
+      "[RANGER_HQ_REALIZATION] That's right, the train takes you to the Ranger HQ. You've got to see what these heroes are up to.",
+      "[TRAIN_BOARDING] With a rumbling stomach and empty pockets, you get on the complimentary train the HQ. A Servo-Bot asks you if there's anything you'd like.",
+      "[SERVO_BOT_WEED] It holds out its hand and palms a joint to you during a handshake. Tell no one. It leaves.",
+      "[PYRAMID_SIGHTING] A silver-pearlescent pyramid gleams in distance. Hills roll gently past a vast hunk of steel and pearlescent glass, your tracks lead right to it.",
+      "[ARRIVAL_AT_LOBBY] As the train slows, you enter the glossy, blue-pink lobby. A receptionist is staring in horror at the TV."
+    ]
+  },
+  "joy_ai_encounter": {
+    "name": "joy_ai_encounter",
+    "description": "A researcher's early morning encounter with JOY, the South Korean Military AI responsible for ranger research",
+    "event_type": "conversation",
+    "characters": [
+      "researcher",
+      "joy_ai",
+      "dr_abdul_qasir"
+    ],
+    "start_node": "dorms",
+    "end_node": "joy_lab",
+    "consequence": [
+      "[AWAKENING] She put on her glasses as she slips out of bed. Buckling her Lab coat, she tiptoes like a shadow, following the voice.",
+      "[FOLLOWING_VOICE] It winds up a stairwell, which she takes two at a time. She comes face to face with a window, a sign reads JOY.",
+      "[JOY_DESCRIPTION] JOY: The South Korean Military AI, responsible for all ranger research and development.",
+      "[JOY_RUMOR] A cadet rumour started last week that with its new patch, it looks exactly like what you desire most in the world.",
+      "[RESEARCHER_PERSPECTIVE] You know better.",
+      "[JOY_REALITY] It appears exactly as you see it. Whatever will be, will be. Whatever is, is.",
+      "[ENTERING_LAB] JOY's voice sings que sera sera as you enter the room. She isn't supposed to be in the lab, no one is.",
+      "[JOY_APPEARANCE] The room bristles red. The screens flash, revealing red pipes criss-crossing gray concrete like scarred flesh. She floats in front of you.",
+      "[JOY_QUESTION] I can't see you, what do you look like?",
+      "[JOY_SCANNING] She runs a patchwork of lasers, scanning you. A red light slowly takes shape.",
+      "[JOY_SPEAKING] \"Did you really like my singing?\" She asks, kind of robotically.",
+      "[INTERRUPTION] Before you can say else, the door clicks open. Dr. Abdul Qasir stands in the doorway, coffee steaming in his cup.",
+      "[QASIR_GREETING] \"My favourite student. Early morning?\"",
+      "[RESEARCHER_RESPONSE] \"Late night.\" He grins. \"She started singing to me in my sleep, I just followed her voice.\"",
+      "[QASIR_EXPLANATION] \"Ah yeah, she does that.\" He continues smiling. \"It means she likes you.\"",
+      "[RESEARCHER_REACTION] You're not sure how to feel about that. \"Get some breakfast kiddo.\"",
+      "[QASIR_BEHAVIOR] He looks up from his reading list and smiles (wow he's smiling a lot).",
+      "[LEAVING_JOY] With one last look, you leave JOY behind."
+    ]
+  },
+  "yellow_ranger_encounter_and_green_death": {
+    "name": "yellow_ranger_encounter_and_green_death",
+    "description": "A breakfast encounter with the Yellow Ranger followed by witnessing the Green Ranger's death in the lab",
+    "event_type": "conversation",
+    "characters": [
+      "researcher",
+      "yellow_ranger",
+      "joy_ai",
+      "dr_qasir",
+      "dr_moon",
+      "dr_han",
+      "green_ranger",
+      "red_ranger"
+    ],
+    "start_node": "mess_hall",
+    "end_node": "rhq_lab",
+    "consequence": [
+      "[BREAKFAST_PREP] Its just you in the hall, but robots get to making the regular, a toasted peanut butter and banana sandwich with a cortado.",
+      "[YELLOW_ENTRANCE] As you watch it being prepared, a man clanks into the hall. Clad in ill-fitting yellows, his metal helmet clangs against the lights.",
+      "[YELLOW_GREETING] \"Pardon me!\" he says, stomping next to you, grabbing your shoulder to keep his balance.",
+      "[FOOD_READY] Your breakfast is ready. \"Ham sandwich, orange juice.\" He says, turning to follow you to your table.",
+      "[YELLOW_INTRODUCTION] \"Um. I'm a power ranger. Like, with a Zword and stuff. I have two kids, they were just here. I have a loving wife-\" Lord Almighty, this might go on for the entire duration of your sandwich.",
+      "[YELLOW_ADMISSION] \"No I'd say they respect me as much I deserve.\" He lets that hang in the air.",
+      "[HEADING_TO_LAB] You head to the lab, thinking about your sandwich. And your research project, the green bull.",
+      "[PROJECT_DESCRIPTION] Not the guy, the 12-ton Emerald Green Bull. You're writing your doctorate on improvements you've suggested to its Solar Energy system.",
+      "[ALARM_BEGINNING] You have the time to look at your diagrams and to-do list for the day when the screen starts flashing red.",
+      "[EMERGENCY_ALERT] A giant red ! pulses brightly while an air raid siren plays. You catch a glimpse of JOY in the red.",
+      "[JOY_REACTION] Her eyes are focused, she's squinting. It makes the little girl look much older.",
+      "[DOCTORS_ARGUING] Dr. Qasir starts talking. Dr. Moon immediately contradicts him. Dr. Han yells and points at the live-video screen.",
+      "[RANGER_INJURY] The red ranger's body sticks out a green ooze, his skull boiling as it sloughs of him in chunks. No other rangers are present.",
+      "[GREEN_BULL_ATTACK] Sunlight enters the frame, and with it the green bull. It smashes into the Slime's head, a tightly congealed chunk, shimmerring with colours.",
+      "[SOLAR_BEAM_ACTIVATION] Your red graph rockets up your screen, before you know it, the system is asking for permission to send power to the solarbeam.",
+      "[VITALS_DROPPING] His vitals drop.",
+      "[DELAYED_RESPONSE] Oh god. A millisecond faster, and he wouldn't be in half. Killed by red tape.",
+      "[GREEN_RANGER_DEATH] You're pushed out of the room as draconic jaws close around the Green Ranger's torso."
+    ]
+  },
+  "morning_routine_sequence": {
+    "name": "morning_routine_sequence",
+    "description": "The protagonist's morning routine and preparation for the Green Ranger's speech, with discussions about Rangers and nuclear capabilities",
+    "event_type": "conversation",
+    "characters": [
+      "protagonist",
+      "ju-hye",
+      "commander",
+      "green_ranger"
+    ],
+    "start_node": "barracks",
+    "end_node": "conference_hall",
+    "consequence": [
+      "[PEACEFUL_MORNING] It's a nice morning. The base is calm, the dawn is unfurling the world, people are rising to meet it.",
+      "[SLEEPING_COMRADES] His friends lie sleeping in their beds, his comrades, his fellow cadets. The Korean army is a professional organization.",
+      "[MORNING_ROUTINE] He is dressed, combed and exercising in 10 minutes. He runs alongside a river. He circles it smoothly.",
+      "[JU_HYE_APPEARANCE] Ju-hye runs by him, like a leopard. When she circles the lake, she finds him doing push-ups.",
+      "[JU_HYE_OFFER] \"Need some help with crunches?\" She grins.",
+      "[SHOWERING] After a heavy workout, you return to shower. Your fellow marines jiggle and dangle around you, hard with muscle. Steam percolates on your face as you shave.",
+      "[CO_ADDRESS] As you dress for a military formal event, your CO addresses you Barrack.",
+      "[GREEN_RANGER_POSITION] \"You 12 are considered promising. The Green Ranger is a prestigious position.\"",
+      "[CO_EXPECTATIONS] \"I expect you all to be on your best behaviour. He does not often give talks, and he's sure to impart sound advice.\"",
+      "[BREAKFAST_WITH_JU_HYE] You spend the morning cooking, serving, then eating breakfast. It's nice though, Ju-Hye gives you company.",
+      "[JU_HYE_FLEXING] You catch her flexing instead of cutting vegetables.",
+      "[RELAXING_BREAKFAST] As you eat, Ju-Hye rests her head on your lap. \"Early morning?\"",
+      "[NUCLEAR_NEGOTIATIONS] \"Long night,\" you say. \"Commander is negotiating nuclear weapons with the Rangers.\"",
+      "[JU_HYE_WAKING] She gets up, rubs the sleep from her eyes.",
+      "[AMERICANS_STALLING] \"We want the rangers to have them, but the Americans are stalling.\"",
+      "[RADIATION_EXPLANATION] \"Why?\" \"Rangers detected radiation in the last one they killed. And on the Green Ranger. He's got cancer.\"",
+      "[MEANINGFUL_LOOK] She looks deep into your eyes.",
+      "[STRIKE_QUESTION] \"Will we strike first?\"",
+      "[COMMANDER_ARRIVAL] The commander comes in. \"Ready?\"",
+      "[FORMAL_SALUTE] Both of you salute. \"Sir Yes Sir.\"",
+      "[COMMANDER_COMMENT] \"Good. This is a rare opportunity. The Ranger loves to teach, but he does not often speak.\"",
+      "[MARCHING_TO_HALL] You both march with the Commander, as he greets cadets, sergeants and captains.",
+      "[JU_HYE_CONCERN] \"I don't like how many people there are\" Ju-Hye mutters. \"Speak up, Soldier\" the Commander says, as you take your seats in the conference hall.",
+      "[CASUALTIES_EXPECTED] \"This is a forward base, Sir. Casualties are expected.\"",
+      "[GREEN_RANGER_ENTRANCE] He's about to respond when the Green Ranger walks to the stage. As he approaches the podium, his visored face scanned the audience, his helmet soaking light like a tree. Armored in wood and brown metal, green shimmers across his form as he begins to speak."
+    ]
+  },
+  "green_ranger_interaction": {
+    "name": "green_ranger_interaction",
+    "description": "Post-speech interactions with the Green Ranger, including a personal assessment and encouragement to become a ranger",
+    "event_type": "conversation",
+    "characters": [
+      "protagonist",
+      "green_ranger",
+      "commander",
+      "ju-ye"
+    ],
+    "start_node": "conference_hall",
+    "end_node": "mess",
+    "consequence": [
+      "[EMOTIONAL_SPEECH] After the speech, you're sure he's crying under the mask, manly tears of pride. The power of youth has faded from his body, the wealth of experience glitters like gold off his pauldrons.",
+      "[JU_YE_REACTION] Ju-ye is crying too, but she glares at you when you make eye contact. The commander walks over to the green ranger and walks him to the exit.",
+      "[HALL_ATMOSPHERE] The hall is filled with a heady mix of optimism, ambition and pride. This is what serving South Korea is for.",
+      "[LUNCH_INVITATION] So, lunch? Ju-ye asks. You're about to agree when your caller beeps, and you're summoned by the hammer to the armory. Rain check, you say.",
+      "[APPROACHING_ARMORY] Marching to the Armory, the door is slightly ajar, a massive security violation. You enter, service revolver drawn, to see the hammer and the green ranger laughing like old friends.",
+      "[WELCOMED_IN] They wave you in. You close the door and step towards the heroes.",
+      "[CASUAL_INTERROGATION] What's your name son? Yeah? which city did you enlist in? He's quite a prodigy, he's been with the mission, covering himself in glory.",
+      "[NAVY_BANTER] Really? He smiles at you. He's 12-0 against the navy cadets. Lots of navy cadets are bitches. My dad was in the navy. Your father is a bitch.",
+      "[AWKWARD_MOMENT] They look deep at each other, and you glance at the exit.",
+      "[LAUGHING_RANGERS] They roar in laughter. I'd ask if you've said it to his face, but advice often slides off the blue ranger's oiled head.",
+      "[GREEN_LAUGHTER] The green laughs harder. When they're done, they seem to be expecting you to say something.",
+      "[TOUGH_STANDARD] You've picked a tough bar for pride. Still, I remember when I looked up to him. He was my first CO in Korea.",
+      "[TYKE_TRAINING] Training the tykes now. You'd be surprised how much of my time is spent making them fuck. On which note, how's Ju-ye?",
+      "[RANGER_SUGGESTION] The green looks pensive. You know, there's something Hammer told me when I was about to put on the suit. I think you should try to be a ranger.",
+      "[HEART_COMMENT] You've got what it takes. A Heart.",
+      "[GREEN_DEPARTURE] He walks out the door, green half-cape swishing. The base commander tells you to lock the door behind you. He does leave you unattended in the armory.",
+      "[SANDWICH_GIFT] No more food will be served today, but you pick up a sandwich with a note, don't go hungry greenhead. You assume it's from Ju-ye. Item gained"
+    ]
+  },
+  "emergency_deployment": {
+    "name": "emergency_deployment",
+    "description": "An evening in the barracks followed by an urgent emergency call that leads to a military deployment to assist the Green Ranger",
+    "event_type": "conversation",
+    "characters": [
+      "protagonist",
+      "ju-ye",
+      "commander",
+      "green_ranger"
+    ],
+    "start_node": "barracks",
+    "end_node": "pyramid",
+    "consequence": [
+      "[EVENING_BARRACKS] 6 other cadets mill about the room, reading, shaving. Two are eyeing each other, you're sure one of their beds will be empty tonight.",
+      "[BUNK_DESCRIPTION] Your bunk is number 7. All your stuff is packed neatly under your bed, and the top bunk is equally organized. A small name tag reads Property of Ju-ye.",
+      "[JU_YE_ARRIVAL] As you prepare, Ju-ye walks in, and in a few smooth motions, takes off her boots, undoes her shirt and jumps clean over you onto the top bunk, snuggling into her blankets.",
+      "[REST_CONSIDERATION] It does look quite inviting to join her, but you could do with rest.",
+      "[EMERGENCY_CALL] In the morning, you're woken by your caller beeping. You skim the words urgent immediate emergency code green and are dressed in a minute.",
+      "[QUICK_DEPARTURE] Before Ju-ye can say good morning, you're out the door. The commander is waiting for you outside the door, and you both brisk walk to a waiting jeep.",
+      "[RANGER_REQUEST] Rumbling through green terrain, the hammer tells you the green ranger has requested military back-up, and as the nearest base to Seoul, the entire base will be mobilized.",
+      "[VTOL_BOARDING] You run onto the flat tarmac of an airfield. A VTOL is heating its engines as the commander sprints into its gaping metal maw.",
+      "[AERIAL_VIEW] You strap in, and the steel floor is replaced with a camera feed. The purple lights of Neo Seoul glitter under you as you leave the city's airspace.",
+      "[RESTRICTED_AREA] Radio chatter informs you of entering a restricted area, and the pilot responds with codes in Korean Alphanumeric.",
+      "[COMMANDER_CONCERN] He's never called in an assist before. Well, we're usually the ones on death ground. The commander shakes his head. He's come out of worse.",
+      "[COMMANDER_DOUBT] His lips tighten. He's trying to convince himself. You've seen this before. Time to step up.",
+      "[PYRAMID_LANDING] The VTOL lands on a silver pearlescent pyramid, glowing with colors. A morning sun glows with energy, the shimmering pyramid appearing like a dream.",
+      "[COMMANDER_LEAP] As the landing suspensors engage, the commander unstraps himself and leaps from the plane 10 metres onto the ground."
+    ]
+  },
+  "pink_conversation": {
+    "name": "pink_conversation",
+    "description": "A conversation between the bartender, tourist and pink ranger, Vanessa",
+    "event_type": "conversation",
+    "characters": [
+      "bartender",
+      "pink_ranger"
+    ],
+    "start_node": "bar",
+    "end_node": "monument",
+    "consequence": [
+      "[PINK_EYES] Eyes gleam at you from across the bar. You'd swear they look pink, if that wasn't impossible.",
+      "[APPROACHING_FIGURE] The owner of the eyes saunters your way, swaying like a candle. Her brown hair falls to her left as she tilts her head to get a better look at you",
+      "[SITTING_DOWN] She slumps onto the seat next to you, round eyes still gleaming. Her upturned nose sniffs, and her breaths get lighter.",
+      "[DEATH_COMMENT] You smell like death.' she says, with finality. She snaps her fingers at the bartender, pointing at your empty glass.",
+      "[CRYING_WOMAN] As your cup is being filled, you notice she's crying. Before you can say anything, she lays her head on the bar and snores softly.",
+      "[BARTENDER_REACTION] 'Keep em coming big man' you say to the bartender, who freezes you in place with a high Korean eyebrow arch. Oof, a classic.",
+      "[TAB_SUGGESTION] 'Just Put it on her tab', you suggest. The bartender rumbles. 'No.'",
+      "[BARTENDER_GLANCE] The bartender steals a glance at the sleeping, drooling woman next to you.",
+      "[MONUMENT_DIRECTION] The Ranger Monument. All you fucking tourists go there.",
+      "[SEOUL_ADVICE] While it can be hard to tell the difference between them, advice is better than threats in Seoul."
+    ]
+  },
+  "meta": {
+    "title": "Ranger Chronicles: Neo Seoul",
+    "version": "1.0",
+    "author": "Anonymous",
+    "game_type": "Visual Novel",
+    "setting": "Futuristic South Korea",
+    "main_characters": [
+      {
+        "name": "Protagonist",
+        "role": "Military Cadet"
+      },
+      {
+        "name": "Ju-ye",
+        "role": "Fellow Cadet"
+      },
+      {
+        "name": "Green Ranger",
+        "role": "Legendary Hero"
+      },
+      {
+        "name": "Commander",
+        "role": "Base Leader"
+      },
+      {
+        "name": "Pink Ranger",
+        "role": "Mysterious Ranger"
+      }
+    ]
+  }
+}
+      "[FORM_QUESTION_1] Q1. You wake up gay. How do you respond?",
+      "[FORM_QUESTION_2] Q2. Do you love South Korea?",
+      "[FORM_QUESTION_3] Q3. Your mother makes dinner. Why?",
+      "[FORM_QUESTION_4] Q4. God is real. How do you respond?",
+      "[FORM_QUESTION_5] Q5. What is the escape velocity of Earth?",
+      "[FORM_QUESTION_6] Q6. Push ups or Pull ups? Justify.",
+      "[FORM_QUESTION_7] Q7. You're trying to sleep in an unfamiliar location. Mosquitoes drink your blood, the heat attracts more of them, you sweat and stink. Finally a bee buzzes next to you? How do you respond?",
+      "[PROCESSING_ANSWERS] -Please-Wait-Checking-Answers-",
+      "[INITIAL_IMPRESSION] Interesting questions at the very least. You wait.",
+      "[WAITING_PERIOD] You wait for a while. The servo-bot gets you a coffee while you watch the news.",
+      "[GREEN_RANGER_ABSENCE] He's really gone.",
+      "[OFFICIAL_ARRIVAL] The bot returns with a severe looking man in black robes.",
+      "[TOURIST_REACTION] [Tourist] Jig's up. Back on the road.",
+      "[BERET_REACTION] [Beret] Captain Ordon. An honor.",
+      "[RESEARCHER_REACTION] [Researcher] Good Morning Sir.",
+      "[CAPTAIN_ASSESSMENT] He looks at you, assessing how you stand, how you use your voice, how you shift your weight, how you avoid his gaze.",
+      "[JOY_CONNECTION] [JOY] Somehow, it reminds of you being scanned.",
+      "[SHOCKING_OFFER] \"I'm not sure how, but you've scored higher than anyone in the history of the Power Rangers program. A spot has just opened up. We'd like you to be the Green Ranger.\"",
+      "[TITLE_DROP] BREATH MINT"
+    ]
+  },
+  "ranger_lobby_death": {
+    "description": "Multiple characters converge in the RHQ lobby and witness news of the Rangers' deaths, leading to an opportunity",
+    "event_type": "conversation",
+    "characters": [
+      "researcher",
+      "green_beret",
+      "tourist",
+      "servo_bot",
+      "receptionist",
+      "security_guard",
+      "marketing_head"
+    ],
+    "start_node": "multiple_entry_points",
+    "end_node": "rhq_lobby",
+    "consequence": [
+      "[RESEARCHER_ENTRANCE] Everywhere is on lockdown, contingencies for contingencies are being planned. You find yourself murmuring \"How can I help?\"",
+      "[RESEARCHER_SECURITY] A man with a gun stops you. Oh, it's a security guard. Um, is he touching a member of staff?",
+      "[RESEARCHER_DIRECTIVE] \"There's some freak smoking a joint in the lobby. Could you be a doll and tell him to go?\" He jogs off.",
+      "[RESEARCHER_CURIOSITY] This you've got to see. Bold enough to be a ranger, stupid enough to be here.",
+      "[RESEARCHER_ARRIVAL] You walk past security to the glossy, blue pink lobby. A receptionist is staring in horror at the TV.",
+      
+      "[GREEN_BERET_ENTRANCE] Everywhere is on lockdown, contingencies for contingencies are being planned. At least they're taking the nukes seriously.",
+      "[GREEN_BERET_OVERHEARING] You overhear someone say Green Bull and KIA. The base commander has gone pale. \"no. no no non nono no no-\" he trails off.",
+      "[MARKETING_COMMAND] \"Cadet, tell the receptionist to keep the agit-prop fucks out of the building, NOW!\" roars a fat man in a suit.",
+      "[MARKETING_HEAD_IDENTITY] As you run past him, you spot head of marketing on his nametag. Figures.",
+      "[GREEN_BERET_ARRIVAL] You run past armed men to a glossy, blue-pink lobby. A receptionist is staring in horror at the TV.",
+      
+      "[TOURIST_THOUGHTS] Man, what a city! Sure its empty and racist and you're flat fucking broke, but its the best city to be high in. High.",
+      "[TOURIST_DECISION] That's right, the train takes you to the Ranger HQ. You've got to see what these heroes are up to.",
+      "[TRAIN_BOARDING] With a rumbling stomach and empty pockets, you get on the complimentary train the HQ. A Servo-Bot asks you if there's anything you'd like.",
+      "[WEED_REQUEST] Weed. It holds out its hand and palms a joint to you during a handshake. Tell no one. It leaves.",
+      "[PYRAMID_SIGHTING] A silver-pearlescent pyramid gleams in distance. Hills roll gently past a vast hunk of steel and pearlescent glass, your tracks lead right to it.",
+      "[TOURIST_ARRIVAL] As the train slows, you enter the glossy, blue-pink lobby. A receptionist is staring in horror at the TV.",
+      
+      "[NEWS_PROCESSING] Once you get your bearings, you try to believe what you're hearing. A Kaiju named Baby Green ripped through all the Rangers, starting with the Yellow.",
+      "[RANGER_DEATHS] Over the course of three hours, all the other rangers died fighting it. The Green Bull was the last to fall, his experimental Solarbeam going unused.",
+      "[GREEN_RANGER_FATE] In a brutal fight, the green ranger was dismembered. Viewer discretion is advised.",
+      "[GRIM_OBSERVATION] It's only half of him. Strong legs.",
+      "[SERVO_BOT_APPROACH] A servo-bot rolls up to you, offering you a form.",
+      "[OPPORTUNITY_PRESENTED] \"Chance of a lifetime!\" it beeps and boops.",
+      "[COLOR_PENS] 5 coloured pens sit on in a holder attached to the bot. Test time.",
+      "[FORM_COMPLETION] You find a comfortable seat, and the servo-bot joins you, helpfully holding pens."
+    ]
+  },
+  "tourist_hotel_awakening": {
+    "description": "A tourist wakes up hungover in a hotel room in Seoul with an empty wallet",
+    "event_type": "conversation",
+    "characters": [
+      "tourist"
+    ],
+    "start_node": "hotel",
+    "end_node": "hotel",
+    "consequence": [
+      "[HUNGOVER_AWAKENING] Your head hurts. You move like you're underwater, eyes heavy, skull sloshing like a balloon. A soft voice rings around your skull, siballance tearing a hole in your barely settled skin.",
+      "[WAKEUP_TIME] \"2 p.m.\"",
+      "[SELF_QUESTIONING] Nice. What time did you sleep last night? Where did you wake up?",
+      "[ROOM_DESCRIPTION] A hotel room, it looks like. You see familiar Clothes and smells scattered across the room. A bed, a table and chair, a door that's probably a bathroom.",
+      "[CLUMSY_MOVEMENT] You tumble off the bed, landing with the grace of a bull. You see a passport with your name and face on it. A wallet, with no money.",
+      "[TOURIST_OUTFIT] You're wearing a green flowery shirt, and green quilted shorts. You've survived Johanessburg, Cairo and Guatamala in these threads, looking fly the whole time.",
+      "[IDENTITY_PROMPT] What does the passport say? Who does it describe?",
+      "[PHILOSOPHICAL_MOMENT] You're reminded of something a friend once told you. Only once we free ourselves from the shackles of money can we be free. Of course he was trying to bum a couple of grams of the green stuff off you.",
+      "[MIRROR_REFLECTION] Liberated as you are, you look in the mirror and see only yourself, a flower shirt and green shorts over sunken skin."
+    ]
+  },
+  "grocery_store_brawl": {
+    "description": "The tourist's encounter with local youths at a grocery store that leads to a confrontation",
+    "event_type": "combat",
+    "characters": [
+      "tourist",
+      "storekeeper",
+      "korean_youths"
+    ],
+    "start_node": "grocery_store",
+    "end_node": "grocery_store",
+    "consequence": [
+      "[SENSORY_OVERLOAD] Everything is flashy. Your eyes hurt, your head throbs. Just looking at Plasticky tofu makes your belly rumble. That joint did a number on you.",
+      "[HUNGER_WITHOUT_MONEY] You've got the munchies, but no monies.",
+      "[STORE_WANDERING] You drift across the tiny store like a starving ship, empty, stumbling, sad. Everything makes you wish you had money, from the smokes to the water.",
+      "[YOUTHS_ENTER] Youths enter the store. (youths? What are you, 30? Cmon old man) They chat with the storekeep in Korean.",
+      "[LANGUAGE_BARRIER] You hear the word Neul-geun-i, which is a not nice way of saying old man. They laugh, he doesn't. His lips tighten. You've seen this before. Time to go.",
+      "[CONFRONTATION_BEGINS] By the exit, one of the boys stops you. \"Gug-Oeja?\" \"Good Ouija to you too.\" (korean) a fucking comedian. They seem mad.",
+      "[BRAWL_AFTERMATH] Your head hurts, your body hurts, your knuckles hurt, your lungs scream. The storekeep stands over a boy who tried to make a break for the exit with some Marlboro Reds(terrible cigarettes), a foot on his chest.",
+      "[RACIST_DISMISSAL] \"Leave, (racist term)guai lo. \" wow, in English too.",
+      "[LOST_TOURIST] \"And go where?\"",
+      "[MONUMENT_SUGGESTION] \"Ranger monument, all you fucking tourists go there.\"",
+      "[TOURIST_DECISION] Twice in one night. Might as well check it out."
+    ]
+  },
+  "monument_to_rhq": {
+    "description": "The tourist visits the Ranger Monument while high and takes a train to Ranger HQ",
+    "event_type": "conversation",
+    "characters": [
+      "tourist",
+      "servo_bot",
+      "receptionist"
+    ],
+    "start_node": "monument",
+    "end_node": "rhq_lobby",
+    "consequence": [
+      "[PARK_RESTRICTIONS] The park's gates list dozens of things you can't do inside, mentioning the word cannabis in 6 different languages. Still, it doesn't look like anyone's around.",
+      "[EMPTY_CITY] Guess racist Korea doesn't get too many tourists anymore.",
+      "[SMOKING_JOINT] You light up as you wander through the park, the lights of residential blocks steadily burning above you, dull billboards shiny but silent.",
+      "[DESERTED_SURROUNDINGS] A train shoots by overhead, empty. It's 5 in the evening, you'd think there would be more children at a park. Lucky though, you'd probably have to put away your perfectly rolled buddy away.",
+      "[PEACEFUL_ATMOSPHERE] You take a deep puff as a mossy fountain bubbles at you. You see grass cracking through the stones of the path. You hear the wind shimmer through the trees.",
+      "[MYSTERIOUS_SILENCE] Why you don't hear any people is a mystery.",
+      "[MONUMENT_DISCOVERY] Finally, when you're halfway though the joint and almost at your peak high, you see it. You're amazed you didn't see it sooner.",
+      "[MONUMENT_DESCRIPTION] On a rocky hill, colorful heroes plant a mighty flag. Pink hands try to reach the pole, yellow arms grasp it tight. A powerfully built blue body hoists it high, while a perfect hero, Red and Ready smashes the pole into the stones of the earth, holding a glowing Won in his other hand. You can just make out a green figure, but he's on the other side of the heroes.",
+      "[MONUMENT_PLAQUE] A plaque reads, The Mighty Morphin' Power Rangers.",
+      "[TOURIST_APPRECIATION] Man, what a city! Sure its empty and racist and you're flat fucking broke, but its the best city to be high in. High.",
+      "[RANGER_HQ_REALIZATION] That's right, the train takes you to the Ranger HQ. You've got to see what these heroes are up to.",
+      "[TRAIN_BOARDING] With a rumbling stomach and empty pockets, you get on the complimentary train the HQ. A Servo-Bot asks you if there's anything you'd like.",
+      "[SERVO_BOT_WEED] It holds out its hand and palms a joint to you during a handshake. Tell no one. It leaves.",
+      "[PYRAMID_SIGHTING] A silver-pearlescent pyramid gleams in distance. Hills roll gently past a vast hunk of steel and pearlescent glass, your tracks lead right to it.",
+      "[ARRIVAL_AT_LOBBY] As the train slows, you enter the glossy, blue-pink lobby. A receptionist is staring in horror at the TV."
+    ]
+  },
+  "joy_ai_encounter": {
+    "description": "A researcher's early morning encounter with JOY, the South Korean Military AI responsible for ranger research",
+    "event_type": "conversation",
+    "characters": [
+      "researcher",
+      "joy_ai",
+      "dr_abdul_qasir"
+    ],
+    "start_node": "dorms",
+    "end_node": "joy_lab",
+    "consequence": [
+      "[AWAKENING] She put on her glasses as she slips out of bed. Buckling her Lab coat, she tiptoes like a shadow, following the voice.",
+      "[FOLLOWING_VOICE] It winds up a stairwell, which she takes two at a time. She comes face to face with a window, a sign reads JOY.",
+      "[JOY_DESCRIPTION] JOY: The South Korean Military AI, responsible for all ranger research and development.",
+      "[JOY_RUMOR] A cadet rumour started last week that with its new patch, it looks exactly like what you desire most in the world.",
+      "[RESEARCHER_PERSPECTIVE] You know better.",
+      "[JOY_REALITY] It appears exactly as you see it. Whatever will be, will be. Whatever is, is.",
+      "[ENTERING_LAB] JOY's voice sings que sera sera as you enter the room. She isn't supposed to be in the lab, no one is.",
+      "[JOY_APPEARANCE] The room bristles red. The screens flash, revealing red pipes criss-crossing gray concrete like scarred flesh. She floats in front of you.",
+      "[JOY_QUESTION] I can't see you, what do you look like?",
+      "[JOY_SCANNING] She runs a patchwork of lasers, scanning you. A red light slowly takes shape.",
+      "[JOY_SPEAKING] \"Did you really like my singing?\" She asks, kind of robotically.",
+      "[INTERRUPTION] Before you can say else, the door clicks open. Dr. Abdul Qasir stands in the doorway, coffee steaming in his cup.",
+      "[QASIR_GREETING] \"My favourite student. Early morning?\"",
+      "[RESEARCHER_RESPONSE] \"Late night.\" He grins. \"She started singing to me in my sleep, I just followed her voice.\"",
+      "[QASIR_EXPLANATION] \"Ah yeah, she does that.\" He continues smiling. \"It means she likes you.\"",
+      "[RESEARCHER_REACTION] You're not sure how to feel about that. \"Get some breakfast kiddo.\"",
+      "[QASIR_BEHAVIOR] He looks up from his reading list and smiles (wow he's smiling a lot).",
+      "[LEAVING_JOY] With one last look, you leave JOY behind."
+    ]
+  },
+  "yellow_ranger_encounter_and_green_death": {
+    "description": "A breakfast encounter with the Yellow Ranger followed by witnessing the Green Ranger's death in the lab",
+    "event_type": "conversation",
+    "characters": [
+      "researcher",
+      "yellow_ranger",
+      "joy_ai",
+      "dr_qasir",
+      "dr_moon",
+      "dr_han",
+      "green_ranger",
+      "red_ranger"
+    ],
+    "start_node": "mess_hall",
+    "end_node": "rhq_lab",
+    "consequence": [
+      "[BREAKFAST_PREP] Its just you in the hall, but robots get to making the regular, a toasted peanut butter and banana sandwich with a cortado.",
+      "[YELLOW_ENTRANCE] As you watch it being prepared, a man clanks into the hall. Clad in ill-fitting yellows, his metal helmet clangs against the lights.",
+      "[YELLOW_GREETING] \"Pardon me!\" he says, stomping next to you, grabbing your shoulder to keep his balance.",
+      "[FOOD_READY] Your breakfast is ready. \"Ham sandwich, orange juice.\" He says, turning to follow you to your table.",
+      "[YELLOW_INTRODUCTION] \"Um. I'm a power ranger. Like, with a Zword and stuff. I have two kids, they were just here. I have a loving wife-\" Lord Almighty, this might go on for the entire duration of your sandwich.",
+      "[YELLOW_ADMISSION] \"No I'd say they respect me as much I deserve.\" He lets that hang in the air.",
+      "[HEADING_TO_LAB] You head to the lab, thinking about your sandwich. And your research project, the green bull.",
+      "[PROJECT_DESCRIPTION] Not the guy, the 12-ton Emerald Green Bull. You're writing your doctorate on improvements you've suggested to its Solar Energy system.",
+      "[ALARM_BEGINNING] You have the time to look at your diagrams and to-do list for the day when the screen starts flashing red.",
+      "[EMERGENCY_ALERT] A giant red ! pulses brightly while an air raid siren plays. You catch a glimpse of JOY in the red.",
+      "[JOY_REACTION] Her eyes are focused, she's squinting. It makes the little girl look much older.",
+      "[DOCTORS_ARGUING] Dr. Qasir starts talking. Dr. Moon immediately contradicts him. Dr. Han yells and points at the live-video screen.",
+      "[RANGER_INJURY] The red ranger's body sticks out a green ooze, his skull boiling as it sloughs of him in chunks. No other rangers are present.",
+      "[GREEN_BULL_ATTACK] Sunlight enters the frame, and with it the green bull. It smashes into the Slime's head, a tightly congealed chunk, shimmerring with colours.",
+      "[SOLAR_BEAM_ACTIVATION] Your red graph rockets up your screen, before you know it, the system is asking for permission to send power to the solarbeam.",
+      "[VITALS_DROPPING] His vitals drop.",
+      "[DELAYED_RESPONSE] Oh god. A millisecond faster, and he wouldn't be in half. Killed by red tape.",
+      "[GREEN_RANGER_DEATH] You're pushed out of the room as draconic jaws close around the Green Ranger's torso."
+    ]
+  },
+  "morning_routine_sequence": {
+    "description": "The protagonist's morning routine and preparation for the Green Ranger's speech, with discussions about Rangers and nuclear capabilities",
+    "event_type": "conversation",
+    "characters": [
+      "protagonist",
+      "ju-hye",
+      "commander",
+      "green_ranger"
+    ],
+    "start_node": "barracks",
+    "end_node": "conference_hall",
+    "consequence": [
+      "[PEACEFUL_MORNING] It's a nice morning. The base is calm, the dawn is unfurling the world, people are rising to meet it.",
+      "[SLEEPING_COMRADES] His friends lie sleeping in their beds, his comrades, his fellow cadets. The Korean army is a professional organization.",
+      "[MORNING_ROUTINE] He is dressed, combed and exercising in 10 minutes. He runs alongside a river. He circles it smoothly.",
+      "[JU_HYE_APPEARANCE] Ju-hye runs by him, like a leopard. When she circles the lake, she finds him doing push-ups.",
+      "[JU_HYE_OFFER] \"Need some help with crunches?\" She grins.",
+      "[SHOWERING] After a heavy workout, you return to shower. Your fellow marines jiggle and dangle around you, hard with muscle. Steam percolates on your face as you shave.",
+      "[CO_ADDRESS] As you dress for a military formal event, your CO addresses you Barrack.",
+      "[GREEN_RANGER_POSITION] \"You 12 are considered promising. The Green Ranger is a prestigious position.\"",
+      "[CO_EXPECTATIONS] \"I expect you all to be on your best behaviour. He does not often give talks, and he's sure to impart sound advice.\"",
+      "[BREAKFAST_WITH_JU_HYE] You spend the morning cooking, serving, then eating breakfast. It's nice though, Ju-Hye gives you company.",
+      "[JU_HYE_FLEXING] You catch her flexing instead of cutting vegetables.",
+      "[RELAXING_BREAKFAST] As you eat, Ju-Hye rests her head on your lap. \"Early morning?\"",
+      "[NUCLEAR_NEGOTIATIONS] \"Long night,\" you say. \"Commander is negotiating nuclear weapons with the Rangers.\"",
+      "[JU_HYE_WAKING] She gets up, rubs the sleep from her eyes.",
+      "[AMERICANS_STALLING] \"We want the rangers to have them, but the Americans are stalling.\"",
+      "[RADIATION_EXPLANATION] \"Why?\" \"Rangers detected radiation in the last one they killed. And on the Green Ranger. He's got cancer.\"",
+      "[MEANINGFUL_LOOK] She looks deep into your eyes.",
+      "[STRIKE_QUESTION] \"Will we strike first?\"",
+      "[COMMANDER_ARRIVAL] The commander comes in. \"Ready?\"",
+      "[FORMAL_SALUTE] Both of you salute. \"Sir Yes Sir.\"",
+      "[COMMANDER_COMMENT] \"Good. This is a rare opportunity. The Ranger loves to teach, but he does not often speak.\"",
+      "[MARCHING_TO_HALL] You both march with the Commander, as he greets cadets, sergeants and captains.",
+      "[JU_HYE_CONCERN] \"I don't like how many people there are\" Ju-Hye mutters. \"Speak up, Soldier\" the Commander says, as you take your seats in the conference hall.",
+      "[CASUALTIES_EXPECTED] \"This is a forward base, Sir. Casualties are expected.\"",
+      "[GREEN_RANGER_ENTRANCE] He's about to respond when the Green Ranger walks to the stage. As he approaches the podium, his visored face scanned the audience, his helmet soaking light like a tree. Armored in wood and brown metal, green shimmers across his form as he begins to speak."
+    ]
+  },
+  "green_ranger_interaction": {
+    "description": "Post-speech interactions with the Green Ranger, including a personal assessment and encouragement to become a ranger",
+    "event_type": "conversation",
+    "characters": [
+      "protagonist",
+      "green_ranger",
+      "commander",
+      "ju-ye"
+    ],
+    "start_node": "conference_hall",
+    "end_node": "mess",
+    "consequence": [
+      "[EMOTIONAL_SPEECH] After the speech, you're sure he's crying under the mask, manly tears of pride. The power of youth has faded from his body, the wealth of experience glitters like gold off his pauldrons.",
+      "[JU_YE_REACTION] Ju-ye is crying too, but she glares at you when you make eye contact. The commander walks over to the green ranger and walks him to the exit.",
+      "[HALL_ATMOSPHERE] The hall is filled with a heady mix of optimism, ambition and pride. This is what serving South Korea is for.",
+      "[LUNCH_INVITATION] So, lunch? Ju-ye asks. You're about to agree when your caller beeps, and you're summoned by the hammer to the armory. Rain check, you say.",
+      "[APPROACHING_ARMORY] Marching to the Armory, the door is slightly ajar, a massive security violation. You enter, service revolver drawn, to see the hammer and the green ranger laughing like old friends.",
+      "[WELCOMED_IN] They wave you in. You close the door and step towards the heroes.",
+      "[CASUAL_INTERROGATION] What's your name son? Yeah? which city did you enlist in? He's quite a prodigy, he's been with the mission, covering himself in glory.",
+      "[NAVY_BANTER] Really? He smiles at you. He's 12-0 against the navy cadets. Lots of navy cadets are bitches. My dad was in the navy. Your father is a bitch.",
+      "[AWKWARD_MOMENT] They look deep at each other, and you glance at the exit.",
+      "[LAUGHING_RANGERS] They roar in laughter. I'd ask if you've said it to his face, but advice often slides off the blue ranger's oiled head.",
+      "[GREEN_LAUGHTER] The green laughs harder. When they're done, they seem to be expecting you to say something.",
+      "[TOUGH_STANDARD] You've picked a tough bar for pride. Still, I remember when I looked up to him. He was my first CO in Korea.",
+      "[TYKE_TRAINING] Training the tykes now. You'd be surprised how much of my time is spent making them fuck. On which note, how's Ju-ye?",
+      "[RANGER_SUGGESTION] The green looks pensive. You know, there's something Hammer told me when I was about to put on the suit. I think you should try to be a ranger.",
+      "[HEART_COMMENT] You've got what it takes. A Heart.",
+      "[GREEN_DEPARTURE] He walks out the door, green half-cape swishing. The base commander tells you to lock the door behind you. He does leave you unattended in the armory.",
+      "[SANDWICH_GIFT] No more food will be served today, but you pick up a sandwich with a note, don't go hungry greenhead. You assume it's from Ju-ye. Item gained"
+    ]
+  },
+  "emergency_deployment": {
+    "description": "An evening in the barracks followed by an urgent emergency call that leads to a military deployment to assist the Green Ranger",
+    "event_type": "conversation",
+    "characters": [
+      "protagonist",
+      "ju-ye",
+      "commander",
+      "green_ranger"
+    ],
+    "start_node": "barracks",
+    "end_node": "pyramid",
+    "consequence": [
+      "[EVENING_BARRACKS] 6 other cadets mill about the room, reading, shaving. Two are eyeing each other, you're sure one of their beds will be empty tonight.",
+      "[BUNK_DESCRIPTION] Your bunk is number 7. All your stuff is packed neatly under your bed, and the top bunk is equally organized. A small name tag reads Property of Ju-ye.",
+      "[JU_YE_ARRIVAL] As you prepare, Ju-ye walks in, and in a few smooth motions, takes off her boots, undoes her shirt and jumps clean over you onto the top bunk, snuggling into her blankets.",
+      "[REST_CONSIDERATION] It does look quite inviting to join her, but you could do with rest.",
+      "[EMERGENCY_CALL] In the morning, you're woken by your caller beeping. You skim the words urgent immediate emergency code green and are dressed in a minute.",
+      "[QUICK_DEPARTURE] Before Ju-ye can say good morning, you're out the door. The commander is waiting for you outside the door, and you both brisk walk to a waiting jeep.",
+      "[RANGER_REQUEST] Rumbling through green terrain, the hammer tells you the green ranger has requested military back-up, and as the nearest base to Seoul, the entire base will be mobilized.",
+      "[VTOL_BOARDING] You run onto the flat tarmac of an airfield. A VTOL is heating its engines as the commander sprints into its gaping metal maw.",
+      "[AERIAL_VIEW] You strap in, and the steel floor is replaced with a camera feed. The purple lights of Neo Seoul glitter under you as you leave the city's airspace.",
+      "[RESTRICTED_AREA] Radio chatter informs you of entering a restricted area, and the pilot responds with codes in Korean Alphanumeric.",
+      "[COMMANDER_CONCERN] He's never called in an assist before. Well, we're usually the ones on death ground. The commander shakes his head. He's come out of worse.",
+      "[COMMANDER_DOUBT] His lips tighten. He's trying to convince himself. You've seen this before. Time to step up.",
+      "[PYRAMID_LANDING] The VTOL lands on a silver pearlescent pyramid, glowing with colors. A morning sun glows with energy, the shimmering pyramid appearing like a dream.",
+      "[COMMANDER_LEAP] As the landing suspensors engage, the commander unstraps himself and leaps from the plane 10 metres onto the ground."
+    ]
+  },
+  "pink_conversation": {
+    "description": "A conversation between the bartender, tourist and pink ranger, Vanessa",
+    "event_type": "conversation",
+    "characters": [
+      "bartender",
+      "pink_ranger"
+    ],
+    "start_node": "bar",
+    "end_node": "monument",
+    "consequence": [
+      "[PINK_EYES] Eyes gleam at you from across the bar. You'd swear they look pink, if that wasn't impossible.",
+      "[APPROACHING_FIGURE] The owner of the eyes saunters your way, swaying like a candle. Her brown hair falls to her left as she tilts her head to get a better look at you",
+      "[SITTING_DOWN] She slumps onto the seat next to you, round eyes still gleaming. Her upturned nose sniffs, and her breaths get lighter.",
+      "[DEATH_COMMENT] You smell like death.' she says, with finality. She snaps her fingers at the bartender, pointing at your empty glass.",
+      "[CRYING_WOMAN] As your cup is being filled, you notice she's crying. Before you can say anything, she lays her head on the bar and snores softly.",
+      "[BARTENDER_REACTION] 'Keep em coming big man' you say to the bartender, who freezes you in place with a high Korean eyebrow arch. Oof, a classic.",
+      "[TAB_SUGGESTION] 'Just Put it on her tab', you suggest. The bartender rumbles. 'No.'",
+      "[BARTENDER_GLANCE] The bartender steals a glance at the sleeping, drooling woman next to you.",
+      "[MONUMENT_DIRECTION] The Ranger Monument. All you fucking tourists go there.",
+      "[SEOUL_ADVICE] While it can be hard to tell the difference between them, advice is better than threats in Seoul."
+    ]
+  },
+  "meta": {
+    "title": "Ranger Chronicles: Neo Seoul",
+    "version": "1.0",
+    "author": "Anonymous",
+    "game_type": "Visual Novel",
+    "setting": "Futuristic South Korea",
+    "main_characters": [
+      {
+        "name": "Protagonist",
+        "role": "Military Cadet"
+      },
+      {
+        "name": "Ju-ye",
+        "role": "Fellow Cadet"
+      },
+      {
+        "name": "Green Ranger",
+        "role": "Legendary Hero"
+      },
+      {
+        "name": "Commander",
+        "role": "Base Leader"
+      },
+      {
+        "name": "Pink Ranger",
+        "role": "Mysterious Ranger"
+      }
+    ]
   }
 }
