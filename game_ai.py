@@ -13,29 +13,75 @@ class GameAI:
         self.max_tokens = 1000
         self.temperature = 0.1
     
+    
+    def _apply_rules(self, text: str):
+        text = text.lower()
+
+        if "where" in text:
+            return "where_am_i"
+        if "who" in text:
+            return "who_is_here"
+        if any(kw in text for kw in ["go to", "move to", "travel to"]):
+            return "move_location"
+        if any(kw in text for kw in ["do", "start", "continue", "complete", "perform"]):
+            return "sub_action"
+        if "save" in text:
+            return "save"
+        if "quit" in text or "exit" in text:
+            return "quit"
+        return None
+    
     def _match_node_name(self, user_node_name: str, available_nodes: list[str]):
         """
         Attempts to match the user's intended node to one of the available connections.
         Returns the best match or None.
         """
-        matches = difflib.get_close_matches(user_node_name.lower(), [n.lower() for n in available_nodes], n=1, cutoff=0.6)
+        try:
+            matches = difflib.get_close_matches(user_node_name.lower(), [n.lower() for n in available_nodes], n=1, cutoff=0.6)
+        except Exception as e:
+            return None
         if matches:
             # Return the original node name (case-sensitive match)
             for node in available_nodes:
                 if node.lower() == matches[0]:
                     return node
         return None
+    
+    def classify_input(self, text, state):
+        intent = self._apply_rules(text)
+
+        if not intent:
+            intent = self._gpt_classify(text)
+
+        args = {}
+
+        if intent == "move_location":
+            args = {
+                "action": "move_to",
+                "raw": self._match_node_name(text, state.current_node.connections)
+            }
+        elif intent == "sub_action":
+            args = {
+                "action": "perform_event",
+                "raw": text
+            }
+        else:
+            args = {
+                "action": "describe",
+                "raw": text
+            }
+        return args
 
     def process_command(self, classified: Dict, state) -> str:
         action = classified["action"]
-        args = classified.get("args", {})
+        take_action = classified.get("raw")
 
         if action == "describe":
-            question = args.get("raw", "describe")
+            question = take_action
             return self._gpt_respond_about_context(question, state.describe())
 
         elif action == "move_to":
-            requested_node = args["node"]
+            requested_node = take_action
             available = state.current_node.connections
 
             matched_node = self._match_node_name(requested_node, available)
@@ -50,7 +96,7 @@ class GameAI:
 
             # GPT handles interactive turns
             if isinstance(result, dict) and result.get("status") == "awaiting_player_question":
-                player_question = args.get("raw", "")
+                player_question = take_action
                 response = self._gpt_conversation(
                     player_input=player_question,
                     conversation_context=result["context"],
@@ -71,32 +117,24 @@ class GameAI:
         elif action == "quit":
             return "Thanks for playing."
 
-        return f"I don't understand: {args.get('raw', '')}"
+        return f"I don't understand: {take_action}"
 
     # === GPT helpers ===
-    def classify_input(self, text: str, context) -> Dict:
+    def _gpt_classify(self, text: str) -> Dict:
         prompt = f"""
-You are the input interpreter for a text adventure game.
-Your job is to map free-form player input into one of the following actions:
-Game context:
-\"\"\"
-{context}
-\"\"\"
-
-- describe : The user wants to know more about the game.
-options/questions: list of connections, characters and events
-- move_to : The user wants to move to a different location.
-- perform_event : The user wants to talk to someone or do something.
-- quit : The user wants to quit the game.
-- unknown : The user input doesn't match any of the above actions.
+You are a game input classifier. Map the input to one of the following intent keywords:
+- where_am_i : User wants location information
+- who_is_here : User wants other characters/player information
+- where_can_i_go : User wants to know where they can go
+- what_can_i_do : User wants to know what they can do
+- move_location: Player wants to go to a new location
+- sub_action: Player wants to do something
+- save: Player wants to save
+- quit: Player wants to quit
 
 Input: "{text}"
-Output: JSON object like one of:
-{{"action": "describe", "args": {{}}}}
-{{"action": "move_to", "args": {{"node": "kitchen"}}}}
-{{"action": "perform_event", "args": {{}}}}
-{{"action": "quit", "args": {{}}}}
-{{"action": "unknown", "args": {{"raw": "..."}}}}
+
+Respond ONLY with one of the above. If unclear, respond with "fallback".
 """
         response = self.client.messages.create(
             model=self.model,

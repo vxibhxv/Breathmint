@@ -79,10 +79,7 @@ class GameState:
             new_node = node.GameNode.from_name(node_name)
             self.current_node = new_node
             self.player.location = node_name
-            if new_node.current_event:
-                self.current_event = event.Event.from_name(new_node.current_event)
-            else:
-                self.current_event = None
+            self.current_event = self.current_node.current_event
             return True
         return False
 

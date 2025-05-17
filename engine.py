@@ -13,14 +13,12 @@ print(state.describe())
 
 while True:
     user_input = input("\n> ")
-    context = state.describe()
     if state.locked_event == "conversation":
         # Don't classify — treat everything as part of the event
         classified = { "action": "perform_event", "args": { "raw": user_input } }
     else:
         # Normal classification
-        
-        classified = ai.classify_input(user_input, context)
+        classified = ai.classify_input(user_input, state)
 
     response = ai.process_command(classified, state)
     state.respond(response)
