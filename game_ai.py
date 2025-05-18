@@ -7,7 +7,7 @@ import difflib
 
 class GameAI:
     def __init__(self):
-        api_key = open("api_key.txt", "r").read().strip()
+        api_key = "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"
         self.client = anthropic.Anthropic(api_key=api_key)
         self.model = "claude-3-7-sonnet-20250219"
         self.max_tokens = 1000
