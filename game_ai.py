@@ -3,11 +3,12 @@
 import anthropic
 from typing import Dict
 import difflib
+import os
 
 
 class GameAI:
     def __init__(self):
-        api_key = "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"
+        api_key = os.getenv("ANTHROPIC_API_KEY")
         self.client = anthropic.Anthropic(api_key=api_key)
         self.model = "claude-3-7-sonnet-20250219"
         self.max_tokens = 1000
