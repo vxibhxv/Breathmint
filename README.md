@@ -1,5 +1,8 @@
 # Breathmint Frontend Setup
 
+Most of the game, including combat and fucntional writing works best if you simply run it in the terminal. Navigate to the Breath Mint folder, and run python engine.py
+
+
 This guide will help you set up and run the frontend of the **Breathmint** project.
 
 ## Prerequisites
