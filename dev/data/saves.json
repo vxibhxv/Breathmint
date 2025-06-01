@@ -1,0 +1,15 @@
+{
+  "Tourist": {
+    "player": "Tourist",
+    "current_node": "rhq_lab",
+    "timestamp": "2025-05-28T17:32:39.353128",
+    "version": "1.0",
+    "current_event": "yellow_ranger_encounter_and_green_death",
+    "conversation_turns": 0,
+    "locked_event": null
+  },
+  "Green_Beret": {
+    "player": "Green_Beret",
+    "current_node": "barracks"
+  }
+}

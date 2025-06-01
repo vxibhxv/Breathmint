@@ -1,0 +1,355 @@
+{
+  "hotel_room": {
+    "name": "hotel_room",
+    "characters": [
+      "tourist"
+    ],
+    "description": "A brown room with softly glowing lights. It's a little cramped, but it smells like you. Clothes are strewn across the room. A bed, a table and chair, and a bathroom door make up the sparse furnishings. Your passport and empty wallet lie on the nightstand.",
+    "events": [
+      "tourist_hotel_awakening"
+    ],
+    "connections": [
+      "hotel_lobby",
+      "bar"
+    ],
+    "items": [
+      "passport",
+      "empty_wallet",
+      "green_flowery_shirt",
+      "green_shorts"
+    ]
+  },
+  "hotel_lobby": {
+    "name": "hotel_lobby",
+    "characters": [],
+    "description": "A small, dimly lit lobby with peeling wallpaper and flickering lights. The reception desk is unmanned most of the time. A few tattered tourist brochures advertise local attractions in faded colors.",
+    "events": [],
+    "connections": [
+      "hotel_room",
+      "street"
+    ],
+    "items": [
+      "tourist_brochure"
+    ]
+  },
+  "bar": {
+    "name": "bar",
+    "characters": [
+      "bartender",
+      "pink_ranger"
+    ],
+    "description": "A dingy, smoke-filled establishment with low lighting and sticky floors. Korean pop music plays softly in the background. The counter is worn but clean, and various bottles line the shelves behind it.",
+    "events": [
+      "pink_conversation"
+    ],
+    "connections": [
+      "street",
+      "hotel_room",
+      "monument"
+    ],
+    "items": [
+      "empty_glass",
+      "ashtray"
+    ]
+  },
+  "grocery_store": {
+    "name": "grocery_store",
+    "characters": [
+      "storekeeper",
+      "korean_youths"
+    ],
+    "description": "A small convenience store packed with brightly colored products. Fluorescent lights buzz overhead, making everything look unnaturally vibrant. The narrow aisles are filled with snacks, drinks, and basic necessities.",
+    "events": [
+      "grocery_store_brawl"
+    ],
+    "connections": [
+      "street",
+      "monument"
+    ],
+    "items": [
+      "marlboro_reds",
+      "plastic_tofu"
+    ]
+  },
+  "street": {
+    "name": "street",
+    "characters": [],
+    "description": "The neon-lit streets of Neo Seoul pulse with energy even when nearly empty. Advertisements flicker on massive billboards, and the occasional drone zips overhead. The pavement is wet with recent rain.",
+    "events": [],
+    "connections": [
+      "bar",
+      "grocery_store",
+      "hotel_lobby",
+      "monument"
+    ],
+    "items": [
+      "street_food_stand",
+      "public_terminal"
+    ]
+  },
+  "monument": {
+    "name": "monument",
+    "characters": [],
+    "description": "A park centered around a massive statue of the Power Rangers. On a rocky hill, colorful heroes plant a mighty flag. Pink hands reach for the pole, yellow arms grasp it tight. A powerfully built blue body hoists it high, while a perfect hero, Red and Ready smashes the pole into the stones of the earth, holding a glowing Won in his other hand. You can just make out a green figure on the other side.",
+    "events": [
+      "monument_to_rhq"
+    ],
+    "connections": [
+      "street",
+      "ranger_train_station"
+    ],
+    "items": [
+      "commemorative_plaque",
+      "park_bench"
+    ]
+  },
+  "ranger_train_station": {
+    "name": "ranger_train_station",
+    "characters": [
+      "servo_bot"
+    ],
+    "description": "A sleek, automated train station with minimal staff. The platform is immaculate, and the trains arrive silently on magnetic rails. Digital displays show the next destination: Ranger Headquarters.",
+    "events": [],
+    "connections": [
+      "monument",
+      "rhq_lobby"
+    ],
+    "items": [
+      "complimentary_ticket"
+    ]
+  },
+  "rhq_lobby": {
+    "name": "rhq_lobby",
+    "characters": [
+      "receptionist",
+      "servo_bot",
+      "security_guard"
+    ],
+    "description": "A glossy, blue-pink lobby with high ceilings and sleek, modern furniture. Large screens display Ranger propaganda and news feeds. The centerpiece is a holographic display of all five Rangers in heroic poses.",
+    "events": [
+      "ranger_lobby_death",
+      "ranger_application_form"
+    ],
+    "connections": [
+      "ranger_train_station",
+      "rhq_central",
+      "rhq_lab",
+      "rhq_hangar"
+    ],
+    "items": [
+      "ranger_application_form",
+      "color_pens"
+    ]
+  },
+  "rhq_central": {
+    "name": "rhq_central",
+    "characters": [
+      "captain_ordon"
+    ],
+    "description": "The command center of Ranger operations. A massive circular room filled with advanced technology, monitoring stations, and tactical displays. A large table in the center shows a 3D map of Neo Seoul and surrounding areas.",
+    "events": [],
+    "connections": [
+      "rhq_lobby",
+      "armory",
+      "rhq_lab"
+    ],
+    "items": [
+      "ranger_manual",
+      "security_badge"
+    ]
+  },
+  "rhq_lab": {
+    "name": "rhq_lab",
+    "characters": [
+      "researcher",
+      "dr_qasir",
+      "dr_moon",
+      "dr_han",
+      "joy_ai"
+    ],
+    "description": "A high-tech laboratory filled with experimental equipment and computer terminals. Red pipes criss-cross the concrete walls like scarred flesh. Various prototype weapons and devices are being developed here, including the Green Bull's Solar Energy system.",
+    "events": [
+      "yellow_ranger_encounter_and_green_death"
+    ],
+    "connections": [
+      "rhq_lobby",
+      "rhq_central",
+      "joy_lab"
+    ],
+    "items": [
+      "experimental_tech",
+      "research_documents"
+    ]
+  },
+  "joy_lab": {
+    "name": "joy_lab",
+    "characters": [
+      "joy_ai",
+      "dr_abdul_qasir"
+    ],
+    "description": "A specialized lab dedicated to JOY, the South Korean Military AI. The room bristles with technology, screens flash with data, and a red holographic interface dominates the center of the room. There's a sense that JOY is always watching here.",
+    "events": [
+      "joy_ai_encounter"
+    ],
+    "connections": [
+      "dorms",
+      "rhq_lab",
+      "mess_hall"
+    ],
+    "items": [
+      "ai_manual",
+      "holographic_interface"
+    ]
+  },
+  "dorms": {
+    "name": "dorms",
+    "characters": [
+      "researcher"
+    ],
+    "description": "Spartan sleeping quarters for the research staff. Simple beds, personal lockers, and minimal decorations. The lighting is soft but functional, and the air smells faintly of cleaning products.",
+    "events": [],
+    "connections": [
+      "joy_lab",
+      "mess_hall"
+    ],
+    "items": [
+      "lab_coat",
+      "personal_terminal"
+    ]
+  },
+  "mess_hall": {
+    "name": "mess_hall",
+    "characters": [
+      "researcher",
+      "yellow_ranger",
+      "servo_bots"
+    ],
+    "description": "A large cafeteria with automated food preparation stations and long tables. The kitchen area is sectioned off but visible, and servo-bots buzz around preparing and serving meals. The food is surprisingly good for a military facility.",
+    "events": [],
+    "connections": [
+      "dorms",
+      "joy_lab",
+      "barracks"
+    ],
+    "items": [
+      "sandwich",
+      "cortado",
+      "note"
+    ]
+  },
+  "barracks": {
+    "name": "barracks",
+    "characters": [
+      "protagonist",
+      "ju-ye",
+      "cadets"
+    ],
+    "description": "Military sleeping quarters with rows of bunks. The space is organized and clean, with personal effects neatly stored under each bed. Bunk number 7 belongs to you, with Ju-ye claiming the top bunk. A small name tag reads 'Property of Ju-ye'.",
+    "events": [
+      "morning_routine_sequence",
+      "emergency_deployment"
+    ],
+    "connections": [
+      "mess_hall",
+      "conference_hall",
+      "training_grounds"
+    ],
+    "items": [
+      "military_uniform",
+      "caller_device"
+    ]
+  },
+  "conference_hall": {
+    "name": "conference_hall",
+    "characters": [
+      "protagonist",
+      "ju-hye",
+      "commander",
+      "green_ranger",
+      "cadets",
+      "officers"
+    ],
+    "description": "A large auditorium with rows of seats facing a central stage and podium. The space is designed for briefings, speeches, and large gatherings. The acoustics are excellent, and the lighting can be adjusted for different presentations.",
+    "events": [
+      "green_ranger_interaction"
+    ],
+    "connections": [
+      "barracks",
+      "armory"
+    ],
+    "items": [
+      "presentation_equipment",
+      "water_pitcher"
+    ]
+  },
+  "armory": {
+    "name": "armory",
+    "characters": [
+      "commander",
+      "green_ranger"
+    ],
+    "description": "A secure room filled with weapons, armor, and tactical equipment. The walls are lined with various firearms, explosives, and specialized gear. Security protocols are strict, and the door is usually locked and monitored.",
+    "events": [],
+    "connections": [
+      "conference_hall",
+      "rhq_central",
+      "rhq_hangar"
+    ],
+    "items": [
+      "service_revolver",
+      "ranger_equipment"
+    ]
+  },
+  "rhq_hangar": {
+    "name": "rhq_hangar",
+    "characters": [
+      "commander",
+      "pilots",
+      "personnel"
+    ],
+    "description": "A massive space housing various aircraft and vehicles, including VTOLs used for rapid deployment. The ceiling is high enough to accommodate large machines, and maintenance crews work around the clock keeping everything operational.",
+    "events": [],
+    "connections": [
+      "armory",
+      "rhq_lobby",
+      "pyramid"
+    ],
+    "items": [
+      "vtol_aircraft",
+      "maintenance_tools"
+    ]
+  },
+  "training_grounds": {
+    "name": "training_grounds",
+    "characters": [
+      "protagonist",
+      "ju-hye",
+      "cadets"
+    ],
+    "description": "Outdoor facilities for physical training and combat exercises. Includes running tracks, obstacle courses, and sparring areas. A river runs alongside, and there's a lake that cadets often circle during morning runs.",
+    "events": [],
+    "connections": [
+      "barracks"
+    ],
+    "items": [
+      "training_equipment",
+      "water_station"
+    ]
+  },
+  "pyramid": {
+    "name": "pyramid",
+    "characters": [
+      "commander",
+      "green_ranger"
+    ],
+    "description": "A silver pearlescent pyramid glowing with colors. Morning sun makes the shimmering structure appear like a dream. This mysterious location seems to be connected to Ranger operations but its exact purpose isn't clear.",
+    "events": [],
+    "connections": [
+      "rhq_hangar"
+    ],
+    "items": [
+      "unknown_technology",
+      "landing_pad"
+    ]
+  }
+}
